@@ -1,65 +1,131 @@
-import Image from "next/image";
+import Link from 'next/link';
+import BentoCard from '@/components/BentoCard';
+import { BookOpen, Calendar, FileText, MessageCircle, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Hero Card */}
+      <div className="bento-card bento-card-green p-8 md:p-12 mb-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              🇲🇱 BacMali
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300">
+              Le Bento Grid pour cartonner en Maths, Physique, Chimie TSE & TSExp
+            </p>
+          </div>
+          <div className="text-6xl md:text-8xl animate-pulse">
+            🎓
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+
+      {/* Bento Grid */}
+      <div className="bento-grid">
+        {/* Choose Series - Large Card */}
+        <BentoCard size="large" color="yellow">
+          <div className="p-6 h-full flex flex-col justify-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              Choisis ta série
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Link href="/tse">
+                <div className="bg-[#006400]/20 hover:bg-[#006400]/40 border-2 border-[#006400]/50 hover:border-[#006400] rounded-xl p-6 text-center transition-all cursor-pointer hover:scale-105">
+                  <div className="text-4xl mb-3">🔬</div>
+                  <h3 className="text-xl font-bold text-[#FFCC00]">TSE</h3>
+                  <p className="text-sm text-gray-300 mt-2">Sciences Exactes</p>
+                  <p className="text-xs text-gray-400 mt-1">Maths + PC</p>
+                </div>
+              </Link>
+              <Link href="/tsexp">
+                <div className="bg-[#C8102E]/20 hover:bg-[#C8102E]/40 border-2 border-[#C8102E]/50 hover:border-[#C8102E] rounded-xl p-6 text-center transition-all cursor-pointer hover:scale-105">
+                  <div className="text-4xl mb-3">🧪</div>
+                  <h3 className="text-xl font-bold text-[#FFCC00]">TSExp</h3>
+                  <p className="text-sm text-gray-300 mt-2">Sciences Expérimentales</p>
+                  <p className="text-xs text-gray-400 mt-1">PC + SVT</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </BentoCard>
+
+        {/* Subjects & Corrections - Large Horizontal Card */}
+        <BentoCard size="large" color="green">
+          <div className="p-6 h-full">
+            <div className="flex items-center gap-3 mb-4">
+              <BookOpen className="text-[#FFCC00]" size={32} />
+              <h2 className="text-2xl md:text-3xl font-bold">Sujets & Corrigés</h2>
+            </div>
+            <p className="text-gray-300 mb-4">Programme officiel malien bkalan</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+              {[2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025].map((year) => (
+                <button
+                  key={year}
+                  className="bg-gray-800/50 hover:bg-[#006400]/50 border border-gray-700 hover:border-[#006400] rounded-lg py-3 px-4 text-center transition-all"
+                >
+                  <span className="font-bold">{year}</span>
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-gray-500 mt-4">📁 Liens Google Drive disponibles bientôt</p>
+          </div>
+        </BentoCard>
+
+        {/* Weekly Planning - Small Card */}
+        <BentoCard size="small" color="default">
+          <div className="p-6 h-full flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <Calendar className="text-[#FFCC00]" size={24} />
+              <h3 className="text-lg font-bold">Planning hebdo</h3>
+            </div>
+            <p className="text-sm text-gray-300 flex-1">
+              Semaine du 14-20 avril 2026
+            </p>
+            <div className="mt-3 space-y-1">
+              <p className="text-xs text-[#006400]">• Nombres complexes</p>
+              <p className="text-xs text-[#FFCC00]">• Mécanique</p>
+            </div>
+          </div>
+        </BentoCard>
+
+        {/* Revision Sheets - Small Card */}
+        <BentoCard size="small" color="default">
+          <div className="p-6 h-full flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <FileText className="text-[#C8102E]" size={24} />
+              <h3 className="text-lg font-bold">Fiches de révision</h3>
+            </div>
+            <p className="text-sm text-gray-300 flex-1">
+              Résumés clairs et efficaces
+            </p>
+            <p className="text-xs text-[#FFCC00] mt-3">Pas de perte de temps</p>
+          </div>
+        </BentoCard>
+
+        {/* Discord Community - Large Card */}
+        <BentoCard size="large" color="red">
+          <div className="p-6 h-full flex flex-col justify-center items-center text-center">
+            <MessageCircle className="text-[#5865F2] mb-4" size={48} />
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Rejoindre la communauté
+            </h2>
+            <p className="text-gray-300 mb-6">
+              Échange avec d'autres terminales maliens
+            </p>
+            <a
+              href="https://discord.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 flex items-center gap-2"
+            >
+              <span>Rejoindre Discord</span>
+              <ArrowRight size={20} />
+            </a>
+          </div>
+        </BentoCard>
+      </div>
     </div>
   );
 }
