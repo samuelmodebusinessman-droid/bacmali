@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import BentoCard from '@/components/BentoCard';
 import { Calculator, FlaskConical, Atom, ArrowRight, Microscope } from 'lucide-react';
 
 export default function TSExpPage() {
@@ -35,129 +34,111 @@ export default function TSExpPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          🇲🇱 BacMali - TSExp
+      <div className="text-center mb-16">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: '#e97816' }}>
+          🇲🇱 TSExp
         </h1>
-        <p className="text-xl text-gray-300">Sciences Expérimentales • PC + SVT</p>
-        <p className="text-sm text-[#3b82f6] mt-2">Programme officiel malien bkalan</p>
+        <p className="text-xl text-gray-600">Sciences Expérimentales</p>
+        <p className="text-sm mt-2" style={{ color: '#1d83e2' }}>Programme officiel malien bkalan</p>
       </div>
 
-      {/* Bento Grid */}
-      <div className="bento-grid">
-        {/* Maths Section */}
-        <BentoCard size="large" color="green">
-          <div className="p-6 h-full">
-            <div className="flex items-center gap-3 mb-6">
-              <Calculator className="text-[#3b82f6]" size={32} />
-              <h2 className="text-2xl md:text-3xl font-bold">Mathématiques</h2>
-            </div>
-            <div className="grid grid-cols-1 gap-3">
-              {mathsChapters.map((chapter, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-800/30 border border-gray-700 rounded-lg p-4 hover:bg-[#3b82f6]/20 hover:border-[#3b82f6]/50 transition-all"
-                >
-                  <h3 className="font-bold text-[#3b82f6] mb-1">{chapter.title}</h3>
-                  <p className="text-sm text-gray-400">{chapter.desc}</p>
-                  <button className="mt-2 text-xs text-[#3b82f6] hover:text-[#06b6d4] transition-colors flex items-center gap-1">
-                    Voir le cours <ArrowRight size={12} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </BentoCard>
-
-        {/* Physics-Chimie Combined Section */}
-        <BentoCard size="large" color="yellow">
-          <div className="p-6 h-full">
-            <div className="flex items-center gap-3 mb-6">
-              <FlaskConical className="text-[#06b6d4]" size={32} />
-              <h2 className="text-2xl md:text-3xl font-bold">Physique-Chimie</h2>
-            </div>
-            
-            {/* Physics Subsection */}
-            <div className="mb-6">
-              <h3 className="text-lg font-bold text-[#3b82f6] mb-3 flex items-center gap-2">
-                <Atom size={20} /> Physique
-              </h3>
-              <div className="grid grid-cols-1 gap-2">
-                {physicsChapters.map((chapter, index) => (
-                  <div
-                    key={`phys-${index}`}
-                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#06b6d4]/20 hover:border-[#06b6d4]/50 transition-all"
-                  >
-                    <h4 className="font-bold text-sm text-[#06b6d4] mb-1">{chapter.title}</h4>
-                    <p className="text-xs text-gray-400">{chapter.desc}</p>
-                    <button className="mt-1 text-xs text-[#06b6d4] hover:text-[#3b82f6] transition-colors flex items-center gap-1">
-                      Voir le cours <ArrowRight size={10} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Chemistry Subsection */}
-            <div>
-              <h3 className="text-lg font-bold text-[#3b82f6] mb-3 flex items-center gap-2">
-                <FlaskConical size={20} /> Chimie
-              </h3>
-              <div className="grid grid-cols-1 gap-2">
-                {chemistryChapters.map((chapter, index) => (
-                  <div
-                    key={`chem-${index}`}
-                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/50 transition-all"
-                  >
-                    <h4 className="font-bold text-sm text-[#8b5cf6] mb-1">{chapter.title}</h4>
-                    <p className="text-xs text-gray-400">{chapter.desc}</p>
-                    <button className="mt-1 text-xs text-[#8b5cf6] hover:text-[#3b82f6] transition-colors flex items-center gap-1">
-                      Voir le cours <ArrowRight size={10} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </BentoCard>
-
-        {/* SVT Info Card */}
-        <BentoCard size="small" color="red">
-          <div className="p-6 h-full flex flex-col justify-center text-center">
-            <Microscope className="text-[#8b5cf6] mx-auto mb-3" size={32} />
-            <h3 className="text-lg font-bold text-[#8b5cf6] mb-2">SVT</h3>
-            <p className="text-sm text-gray-300">
-              Sciences de la Vie et de la Terre
-            </p>
-            <p className="text-xs text-gray-400 mt-2">
-              Module spécifique TSExp
-            </p>
-          </div>
-        </BentoCard>
-
-        {/* Motivation Card */}
-        <BentoCard size="small" color="default">
-          <div className="p-6 h-full flex flex-col justify-center text-center">
-            <div className="text-5xl mb-4">🎯</div>
-            <h3 className="text-xl font-bold text-[#3b82f6] mb-2">Réussis ton bac!</h3>
-            <p className="text-sm text-gray-300">
-              Programme adapté, exercices pratiques, suivi personnalisé
-            </p>
-          </div>
-        </BentoCard>
-
-        {/* Back to Home */}
-        <BentoCard size="small" color="green">
-          <div className="p-6 h-full flex flex-col justify-center">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-[#3b82f6] hover:text-white transition-colors"
+      {/* Catalog Section: Mathématiques */}
+      <section className="mb-16">
+        <div className="flex items-center gap-3 mb-6">
+          <Calculator size={28} style={{ color: '#1d83e2' }} />
+          <h2 className="text-2xl md:text-3xl font-bold">Mathématiques</h2>
+          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#e8f3fc', color: '#1d83e2' }}>{mathsChapters.length} chapitres</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {mathsChapters.map((chapter, index) => (
+            <div
+              key={index}
+              className="bento-card p-6 cursor-pointer"
             >
-              <ArrowRight className="rotate-180" size={20} />
-              <span className="font-bold">Retour accueil</span>
-            </Link>
+              <h3 className="font-bold mb-2" style={{ color: '#1d83e2' }}>{chapter.title}</h3>
+              <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
+              <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#1d83e2' }}>
+                Voir le cours <ArrowRight size={12} />
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Catalog Section: Physique-Chimie */}
+      <section className="mb-16">
+        <div className="flex items-center gap-3 mb-6">
+          <FlaskConical size={28} style={{ color: '#e97816' }} />
+          <h2 className="text-2xl md:text-3xl font-bold">Physique-Chimie</h2>
+          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#fdf2e8', color: '#e97816' }}>{physicsChapters.length + chemistryChapters.length} chapitres</span>
+        </div>
+        
+        {/* Physique subsection */}
+        <div className="mb-8">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: '#e97816' }}>
+            <Atom size={20} /> Physique
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {physicsChapters.map((chapter, index) => (
+              <div
+                key={`phys-${index}`}
+                className="bento-card p-6 cursor-pointer"
+              >
+                <h4 className="font-bold mb-2" style={{ color: '#e97816' }}>{chapter.title}</h4>
+                <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
+                <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#e97816' }}>
+                  Voir le cours <ArrowRight size={12} />
+                </button>
+              </div>
+            ))}
           </div>
-        </BentoCard>
+        </div>
+
+        {/* Chimie subsection */}
+        <div>
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: '#f73008' }}>
+            <FlaskConical size={20} /> Chimie
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {chemistryChapters.map((chapter, index) => (
+              <div
+                key={`chem-${index}`}
+                className="bento-card p-6 cursor-pointer"
+              >
+                <h4 className="font-bold mb-2" style={{ color: '#f73008' }}>{chapter.title}</h4>
+                <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
+                <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#f73008' }}>
+                  Voir le cours <ArrowRight size={12} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Catalog Section: SVT */}
+      <section className="mb-16">
+        <div className="flex items-center gap-3 mb-6">
+          <Microscope size={28} style={{ color: '#f73008' }} />
+          <h2 className="text-2xl md:text-3xl font-bold">SVT</h2>
+          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#feeae6', color: '#f73008' }}>Module spécifique</span>
+        </div>
+        <div className="bento-card p-8 text-center">
+          <Microscope size={48} style={{ color: '#f73008' }} className="mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2" style={{ color: '#f73008' }}>Sciences de la Vie et de la Terre</h3>
+          <p className="text-sm text-gray-600">Module spécifique TSExp</p>
+        </div>
+      </section>
+
+      {/* Back to Home */}
+      <div className="text-center">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700"
+        >
+          <ArrowRight className="rotate-180" size={20} />
+          <span className="font-medium">Retour à l'accueil</span>
+        </Link>
       </div>
     </div>
   );
