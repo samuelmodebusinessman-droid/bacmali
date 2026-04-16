@@ -14,12 +14,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#0F0F0F]/95 backdrop-blur-sm border-b border-gray-800">
+    <nav className="sticky top-0 z-50 bg-[#000000]/95 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl">🇲🇱</span>
-            <span className="text-xl font-bold bg-gradient-to-r from-[#006400] via-[#FFCC00] to-[#C8102E] bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-[#3b82f6] via-[#06b6d4] to-[#8b5cf6] bg-clip-text text-transparent">
               BacMali
             </span>
           </Link>
@@ -29,9 +29,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-[#FFCC00] ${
+                className={`text-sm font-medium transition-colors hover:text-[#3b82f6] ${
                   pathname === item.href
-                    ? 'text-[#FFCC00]'
+                    ? 'text-[#3b82f6]'
                     : 'text-gray-300'
                 }`}
               >
@@ -44,7 +44,7 @@ const Navbar = () => {
             href="https://discord.gg"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center space-x-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white px-4 py-2 rounded-lg transition-colors"
           >
             <MessageCircle size={18} />
             <span className="hidden sm:inline text-sm font-medium">Discord</span>
@@ -58,9 +58,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-[#FFCC00] py-2 ${
+                className={`text-sm font-medium transition-colors hover:text-[#3b82f6] py-2 ${
                   pathname === item.href
-                    ? 'text-[#FFCC00]'
+                    ? 'text-[#3b82f6]'
                     : 'text-gray-300'
                 }`}
               >

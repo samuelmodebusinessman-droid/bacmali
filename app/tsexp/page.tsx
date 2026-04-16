@@ -40,7 +40,7 @@ export default function TSExpPage() {
           🇲🇱 BacMali - TSExp
         </h1>
         <p className="text-xl text-gray-300">Sciences Expérimentales • PC + SVT</p>
-        <p className="text-sm text-[#FFCC00] mt-2">Programme officiel malien bkalan</p>
+        <p className="text-sm text-[#3b82f6] mt-2">Programme officiel malien bkalan</p>
       </div>
 
       {/* Bento Grid */}
@@ -49,18 +49,18 @@ export default function TSExpPage() {
         <BentoCard size="large" color="green">
           <div className="p-6 h-full">
             <div className="flex items-center gap-3 mb-6">
-              <Calculator className="text-[#FFCC00]" size={32} />
+              <Calculator className="text-[#3b82f6]" size={32} />
               <h2 className="text-2xl md:text-3xl font-bold">Mathématiques</h2>
             </div>
             <div className="grid grid-cols-1 gap-3">
               {mathsChapters.map((chapter, index) => (
                 <div
                   key={index}
-                  className="bg-gray-800/30 border border-gray-700 rounded-lg p-4 hover:bg-[#006400]/20 hover:border-[#006400]/50 transition-all"
+                  className="bg-gray-800/30 border border-gray-700 rounded-lg p-4 hover:bg-[#3b82f6]/20 hover:border-[#3b82f6]/50 transition-all"
                 >
-                  <h3 className="font-bold text-[#FFCC00] mb-1">{chapter.title}</h3>
+                  <h3 className="font-bold text-[#3b82f6] mb-1">{chapter.title}</h3>
                   <p className="text-sm text-gray-400">{chapter.desc}</p>
-                  <button className="mt-2 text-xs text-[#006400] hover:text-[#FFCC00] transition-colors flex items-center gap-1">
+                  <button className="mt-2 text-xs text-[#3b82f6] hover:text-[#06b6d4] transition-colors flex items-center gap-1">
                     Voir le cours <ArrowRight size={12} />
                   </button>
                 </div>
@@ -73,24 +73,24 @@ export default function TSExpPage() {
         <BentoCard size="large" color="yellow">
           <div className="p-6 h-full">
             <div className="flex items-center gap-3 mb-6">
-              <FlaskConical className="text-[#006400]" size={32} />
+              <FlaskConical className="text-[#06b6d4]" size={32} />
               <h2 className="text-2xl md:text-3xl font-bold">Physique-Chimie</h2>
             </div>
             
             {/* Physics Subsection */}
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-[#FFCC00] mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-[#3b82f6] mb-3 flex items-center gap-2">
                 <Atom size={20} /> Physique
               </h3>
               <div className="grid grid-cols-1 gap-2">
                 {physicsChapters.map((chapter, index) => (
                   <div
                     key={`phys-${index}`}
-                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#FFCC00]/20 hover:border-[#FFCC00]/50 transition-all"
+                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#06b6d4]/20 hover:border-[#06b6d4]/50 transition-all"
                   >
-                    <h4 className="font-bold text-sm text-[#006400] mb-1">{chapter.title}</h4>
+                    <h4 className="font-bold text-sm text-[#06b6d4] mb-1">{chapter.title}</h4>
                     <p className="text-xs text-gray-400">{chapter.desc}</p>
-                    <button className="mt-1 text-xs text-[#FFCC00] hover:text-[#006400] transition-colors flex items-center gap-1">
+                    <button className="mt-1 text-xs text-[#06b6d4] hover:text-[#3b82f6] transition-colors flex items-center gap-1">
                       Voir le cours <ArrowRight size={10} />
                     </button>
                   </div>
@@ -100,18 +100,18 @@ export default function TSExpPage() {
 
             {/* Chemistry Subsection */}
             <div>
-              <h3 className="text-lg font-bold text-[#FFCC00] mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-[#3b82f6] mb-3 flex items-center gap-2">
                 <FlaskConical size={20} /> Chimie
               </h3>
               <div className="grid grid-cols-1 gap-2">
                 {chemistryChapters.map((chapter, index) => (
                   <div
                     key={`chem-${index}`}
-                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#C8102E]/20 hover:border-[#C8102E]/50 transition-all"
+                    className="bg-gray-800/30 border border-gray-700 rounded-lg p-3 hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/50 transition-all"
                   >
-                    <h4 className="font-bold text-sm text-[#C8102E] mb-1">{chapter.title}</h4>
+                    <h4 className="font-bold text-sm text-[#8b5cf6] mb-1">{chapter.title}</h4>
                     <p className="text-xs text-gray-400">{chapter.desc}</p>
-                    <button className="mt-1 text-xs text-[#C8102E] hover:text-[#FFCC00] transition-colors flex items-center gap-1">
+                    <button className="mt-1 text-xs text-[#8b5cf6] hover:text-[#3b82f6] transition-colors flex items-center gap-1">
                       Voir le cours <ArrowRight size={10} />
                     </button>
                   </div>
@@ -124,8 +124,8 @@ export default function TSExpPage() {
         {/* SVT Info Card */}
         <BentoCard size="small" color="red">
           <div className="p-6 h-full flex flex-col justify-center text-center">
-            <Microscope className="text-[#FFCC00] mx-auto mb-3" size={32} />
-            <h3 className="text-lg font-bold text-[#FFCC00] mb-2">SVT</h3>
+            <Microscope className="text-[#8b5cf6] mx-auto mb-3" size={32} />
+            <h3 className="text-lg font-bold text-[#8b5cf6] mb-2">SVT</h3>
             <p className="text-sm text-gray-300">
               Sciences de la Vie et de la Terre
             </p>
@@ -139,7 +139,7 @@ export default function TSExpPage() {
         <BentoCard size="small" color="default">
           <div className="p-6 h-full flex flex-col justify-center text-center">
             <div className="text-5xl mb-4">🎯</div>
-            <h3 className="text-xl font-bold text-[#FFCC00] mb-2">Réussis ton bac!</h3>
+            <h3 className="text-xl font-bold text-[#3b82f6] mb-2">Réussis ton bac!</h3>
             <p className="text-sm text-gray-300">
               Programme adapté, exercices pratiques, suivi personnalisé
             </p>
@@ -151,7 +151,7 @@ export default function TSExpPage() {
           <div className="p-6 h-full flex flex-col justify-center">
             <Link
               href="/"
-              className="flex items-center gap-2 text-[#FFCC00] hover:text-white transition-colors"
+              className="flex items-center gap-2 text-[#3b82f6] hover:text-white transition-colors"
             >
               <ArrowRight className="rotate-180" size={20} />
               <span className="font-bold">Retour accueil</span>

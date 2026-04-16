@@ -1,72 +1,78 @@
 @import "tailwindcss";
 
 :root {
-  --mali-green: #006400;
-  --mali-yellow: #FFCC00;
-  --mali-red: #C8102E;
-  --mali-dark: #0F0F0F;
-  --background: var(--mali-dark);
-  --foreground: #ffffff;
+  --deepseek-bg: #000000;
+  --deepseek-bg-secondary: #0a0a0a;
+  --deepseek-bg-tertiary: #111111;
+  --deepseek-border: rgba(255, 255, 255, 0.08);
+  --deepseek-border-hover: rgba(59, 130, 246, 0.3);
+  --deepseek-blue: #3b82f6;
+  --deepseek-cyan: #06b6d4;
+  --deepseek-purple: #8b5cf6;
+  --deepseek-text: #ffffff;
+  --deepseek-text-secondary: #9ca3af;
+  --deepseek-text-muted: #6b7280;
+  --background: var(--deepseek-bg);
+  --foreground: var(--deepseek-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-mali-green: var(--mali-green);
-  --color-mali-yellow: var(--mali-yellow);
-  --color-mali-red: var(--mali-red);
-  --color-mali-dark: var(--mali-dark);
+  --color-deepseek-blue: var(--deepseek-blue);
+  --color-deepseek-cyan: var(--deepseek-cyan);
+  --color-deepseek-purple: var(--deepseek-purple);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Bento Grid Styles */
 .bento-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
   overflow: hidden;
-  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, var(--deepseek-bg-secondary) 0%, var(--deepseek-bg) 100%);
+  border: 1px solid var(--deepseek-border);
 }
 
 .bento-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.3);
-  border-color: var(--mali-green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+  border-color: var(--deepseek-border-hover);
 }
 
 .bento-card-green {
-  background: linear-gradient(145deg, rgba(0, 100, 0, 0.2) 0%, rgba(0, 100, 0, 0.1) 100%);
-  border-color: rgba(0, 100, 0, 0.3);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-color: rgba(59, 130, 246, 0.15);
 }
 
 .bento-card-green:hover {
-  border-color: var(--mali-green);
-  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.4);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
 }
 
 .bento-card-yellow {
-  background: linear-gradient(145deg, rgba(255, 204, 0, 0.2) 0%, rgba(255, 204, 0, 0.1) 100%);
-  border-color: rgba(255, 204, 0, 0.3);
+  background: linear-gradient(145deg, rgba(6, 182, 212, 0.08) 0%, rgba(6, 182, 212, 0.02) 100%);
+  border-color: rgba(6, 182, 212, 0.15);
 }
 
 .bento-card-yellow:hover {
-  border-color: var(--mali-yellow);
-  box-shadow: 0 20px 40px rgba(255, 204, 0, 0.3);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
 }
 
 .bento-card-red {
-  background: linear-gradient(145deg, rgba(200, 16, 46, 0.2) 0%, rgba(200, 16, 46, 0.1) 100%);
-  border-color: rgba(200, 16, 46, 0.3);
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
+  border-color: rgba(139, 92, 246, 0.15);
 }
 
 .bento-card-red:hover {
-  border-color: var(--mali-red);
-  box-shadow: 0 20px 40px rgba(200, 16, 46, 0.4);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
 }
 
 /* Responsive Grid */
