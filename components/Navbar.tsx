@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -39,17 +38,6 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
-          <a
-            href="https://discord.gg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 btn-static"
-            style={{ backgroundColor: '#1d83e2', color: '#ffffff' }}
-          >
-            <MessageCircle size={18} />
-            <span className="hidden sm:inline text-sm font-medium">Discord</span>
-          </a>
         </div>
 
         {/* Mobile menu */}

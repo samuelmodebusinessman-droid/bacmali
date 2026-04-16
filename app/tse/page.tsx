@@ -39,7 +39,6 @@ export default function TSEPage() {
           🇲🇱 TSE
         </h1>
         <p className="text-xl text-gray-600">Sciences Exactes</p>
-        <p className="text-sm mt-2" style={{ color: '#e97816' }}>Programme officiel malien bkalan</p>
       </div>
 
       {/* Catalog Section: Mathématiques */}

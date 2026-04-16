@@ -39,7 +39,6 @@ export default function TSExpPage() {
           🇲🇱 TSExp
         </h1>
         <p className="text-xl text-gray-600">Sciences Expérimentales</p>
-        <p className="text-sm mt-2" style={{ color: '#1d83e2' }}>Programme officiel malien bkalan</p>
       </div>
 
       {/* Catalog Section: Mathématiques */}

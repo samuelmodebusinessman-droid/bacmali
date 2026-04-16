@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import BentoCard from '@/components/BentoCard';
-import { BookOpen, Calendar, FileText, MessageCircle, ArrowRight, GraduationCap, FolderOpen, Users } from 'lucide-react';
+import { BookOpen, Calendar, FileText, ArrowRight, GraduationCap, FolderOpen } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -13,7 +13,6 @@ export default function Home() {
         <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
           Catalogue complet pour réussir le Bac malien en Maths, Physique et Chimie
         </p>
-        <p className="text-sm mt-4" style={{ color: '#e97816' }}>Programme officiel bkalan • TSE & TSExp</p>
       </div>
 
       {/* Catalog Section: Séries */}
@@ -57,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* Catalog Section: Ressources */}
-      <section className="mb-16">
+      <section>
         <div className="flex items-center gap-3 mb-6">
           <FolderOpen size={28} style={{ color: '#e97816' }} />
           <h2 className="text-2xl md:text-3xl font-bold">Ressources</h2>
@@ -94,31 +93,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Catalog Section: Communauté */}
-      <section>
-        <div className="flex items-center gap-3 mb-6">
-          <Users size={28} style={{ color: '#f73008' }} />
-          <h2 className="text-2xl md:text-3xl font-bold">Communauté</h2>
-        </div>
-        <div className="bento-card bento-card-red p-8 text-center">
-          <MessageCircle size={48} style={{ color: '#f73008' }} className="mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-3">Rejoins la communauté Discord</h3>
-          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            Échange avec d'autres terminales maliens, pose tes questions et partage tes ressources
-          </p>
-          <a
-            href="https://discord.gg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-bold py-3 px-8 rounded-lg btn-static"
-            style={{ backgroundColor: '#1d83e2', color: '#ffffff' }}
-          >
-            <span>Rejoindre Discord</span>
-            <ArrowRight size={20} />
-          </a>
         </div>
       </section>
     </div>
