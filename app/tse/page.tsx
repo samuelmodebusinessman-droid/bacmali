@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, FlaskConical, Atom, ArrowRight } from 'lucide-react';
+import { Calculator, Play, FileText, ArrowRight, BookOpen, Video, GraduationCap } from 'lucide-react';
 
 export default function TSEPage() {
   const mathsChapters = [
@@ -12,101 +12,116 @@ export default function TSEPage() {
     { title: 'Probabilités', desc: 'Loi binomiale, conditionnelles, variables aléatoires' },
   ];
 
-  const physicsChapters = [
-    { title: 'Mécanique', desc: 'Cinématique, dynamique, travail et énergie' },
-    { title: 'Optique', desc: 'Lentilles, miroirs, formation d\'images' },
-    { title: 'Électricité', desc: 'Circuits, loi d\'Ohm, dipôles RC, RL, RLC' },
-    { title: 'Thermodynamique', desc: 'Gaz parfaits, premier principe, changements d\'état' },
-    { title: 'Induction', desc: 'Loi de Faraday, loi de Lenz, auto-induction' },
-    { title: 'Oscillateurs', desc: 'Oscillations libres, forcées, amorties' },
-  ];
-
-  const chemistryChapters = [
-    { title: 'Stéréochimie', desc: 'Isomérie, représentation de Cram, Newman' },
-    { title: 'Alcools', desc: 'Propriétés, réactions, synthèse' },
-    { title: 'Amines', desc: 'Amines primaires, secondaires, tertiaires' },
-    { title: 'Acides carboxyliques', desc: 'Propriétés, réactions, dérivés' },
-    { title: 'Polymères', desc: 'Polyaddition, polycondensation, synthèse' },
-    { title: 'Réactions acido-basiques', desc: 'pH, solutions tampons, titrages' },
-    { title: 'Solutions', desc: 'Concentration, solubilité, précipitation' },
-  ];
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: '#1d83e2' }}>
-          🇲🇱 TSE
+      {/* Header - Présentation de la filière */}
+      <div className="text-center mb-12">
+        <div className="text-6xl mb-4">🔬</div>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
+          TSE
         </h1>
-        <p className="text-xl text-gray-600">Sciences Exactes</p>
+        <p className="text-2xl text-gray-700 mb-4">Terminale Sciences Exactes</p>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          La filière TSE est destinée aux élèves passionnés par les mathématiques et les sciences. 
+          Elle prépare aux études scientifiques supérieures et aux concours d'entrée aux grandes écoles.
+        </p>
       </div>
 
-      {/* Catalog Section: Mathématiques */}
+      {/* Section Ressources Principales */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-6">
-          <Calculator size={28} style={{ color: '#1d83e2' }} />
-          <h2 className="text-2xl md:text-3xl font-bold">Mathématiques</h2>
-          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#e8f3fc', color: '#1d83e2' }}>{mathsChapters.length} chapitres</span>
+        <div className="flex items-center gap-3 mb-8">
+          <BookOpen size={28} className="text-gray-600" />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Ressources TSE</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {mathsChapters.map((chapter, index) => (
-            <div
-              key={index}
-              className="bento-card p-6 cursor-pointer"
-            >
-              <h3 className="font-bold mb-2" style={{ color: '#1d83e2' }}>{chapter.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
-              <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#1d83e2' }}>
-                Voir le cours <ArrowRight size={12} />
-              </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Cours PDF */}
+          <Link href="/lecons/maths">
+            <div className="border border-[#352315] rounded-xl p-8 cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[#FFF8E7] hover:bg-[#FFE4B5]">
+              <div className="flex items-start justify-between mb-4">
+                <FileText size={48} className="text-gray-700" />
+                <ArrowRight size={24} className="text-gray-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Cours PDF</h3>
+              <p className="text-gray-600 mb-4">Tous les cours de mathématiques en PDF avec exercices corrigés pour la TSE.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs px-3 py-1 rounded-full border border-[#352315] text-gray-700">7 chapitres</span>
+                <span className="text-xs px-3 py-1 rounded-full border border-[#352315] text-gray-700">Exercices</span>
+              </div>
             </div>
-          ))}
+          </Link>
+          {/* Vidéos */}
+          <Link href="/bibliotheque">
+            <div className="border border-[#352315] rounded-xl p-8 cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[#FFF8E7] hover:bg-[#FFE4B5]">
+              <div className="flex items-start justify-between mb-4">
+                <Play size={48} className="text-gray-700" />
+                <ArrowRight size={24} className="text-gray-600" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900">Vidéos</h3>
+              <p className="text-gray-600 mb-4">Sélection de vidéos éducatives spécialement adaptées au programme TSE.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs px-3 py-1 rounded-full border border-[#352315] text-gray-700">15+ vidéos</span>
+                <span className="text-xs px-3 py-1 rounded-full border border-[#352315] text-gray-700">Toutes matières</span>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
-      {/* Catalog Section: Physique */}
+      {/* Programme de Mathématiques */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-6">
-          <Atom size={28} style={{ color: '#e97816' }} />
-          <h2 className="text-2xl md:text-3xl font-bold">Physique</h2>
-          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#fdf2e8', color: '#e97816' }}>{physicsChapters.length} chapitres</span>
+        <div className="flex items-center gap-3 mb-8">
+          <Calculator size={28} className="text-gray-600" />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Programme de Mathématiques</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {physicsChapters.map((chapter, index) => (
-            <div
-              key={index}
-              className="bento-card p-6 cursor-pointer"
-            >
-              <h3 className="font-bold mb-2" style={{ color: '#e97816' }}>{chapter.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
-              <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#e97816' }}>
-                Voir le cours <ArrowRight size={12} />
-              </button>
-            </div>
-          ))}
+        <div className="border border-[#352315] rounded-lg p-6 bg-[#FFEDCE]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {mathsChapters.map((chapter, index) => (
+              <div
+                key={index}
+                className="border border-[#352315] rounded-lg p-4 bg-[#FFF8E7]"
+              >
+                <h3 className="font-bold mb-2 text-gray-900">{chapter.title}</h3>
+                <p className="text-sm text-gray-600">{chapter.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/lecons/maths" className="inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded bg-[#FFF8E7] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]">
+              <FileText size={18} />
+              Accéder aux cours complets
+              <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Catalog Section: Chimie */}
+      {/* Info filière */}
       <section className="mb-16">
         <div className="flex items-center gap-3 mb-6">
-          <FlaskConical size={28} style={{ color: '#f73008' }} />
-          <h2 className="text-2xl md:text-3xl font-bold">Chimie</h2>
-          <span className="text-xs px-3 py-1 rounded-full ml-auto" style={{ backgroundColor: '#feeae6', color: '#f73008' }}>{chemistryChapters.length} chapitres</span>
+          <GraduationCap size={28} className="text-gray-600" />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Débouchés</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {chemistryChapters.map((chapter, index) => (
-            <div
-              key={index}
-              className="bento-card p-6 cursor-pointer"
-            >
-              <h3 className="font-bold mb-2" style={{ color: '#f73008' }}>{chapter.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{chapter.desc}</p>
-              <button className="text-xs font-bold py-2 px-4 rounded btn-static" style={{ color: '#f73008' }}>
-                Voir le cours <ArrowRight size={12} />
-              </button>
-            </div>
-          ))}
+        <div className="border border-[#352315] rounded-lg p-6 bg-[#FFEDCE]">
+          <p className="text-gray-700 mb-4">
+            Après le bac TSE, les élèves peuvent poursuivre dans les filières suivantes :
+          </p>
+          <ul className="space-y-2 text-gray-600">
+            <li className="flex items-center gap-2">
+              <span className="text-[#352315]">•</span> Mathématiques, Physique, Informatique (MPI)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#352315]">•</span> Physique, Chimie, Sciences de la Vie (PCSV)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#352315]">•</span> Sciences Économiques et Gestion (SEG)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#352315]">•</span> Médecine, Pharmacie, Médecine dentaire
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-[#352315]">•</span> Sciences de l'Ingénieur (SI)
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -114,7 +129,7 @@ export default function TSEPage() {
       <div className="text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900"
         >
           <ArrowRight className="rotate-180" size={20} />
           <span className="font-medium">Retour à l'accueil</span>

@@ -13,13 +13,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b-2" style={{ borderColor: '#d1d5db' }}>
+    <nav className="sticky top-0 z-50 bg-[#EAEBED] border-b border-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl">🇲🇱</span>
-            <span className="text-xl font-bold" style={{ color: '#1d83e2' }}>
-              BacMali
+            <span className="text-xl font-bold text-gray-900">
+              MathToBac.ml
             </span>
           </Link>
 
@@ -28,9 +28,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium hover:text-[#1d83e2] ${
+                className={`text-sm font-medium hover:text-gray-900 ${
                   pathname === item.href
-                    ? 'text-[#1d83e2]'
+                    ? 'text-gray-900 font-bold'
                     : 'text-gray-600'
                 }`}
               >
@@ -47,9 +47,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium hover:text-[#1d83e2] py-2 ${
+                className={`text-sm font-medium hover:text-gray-900 py-2 ${
                   pathname === item.href
-                    ? 'text-[#1d83e2]'
+                    ? 'text-gray-900 font-bold'
                     : 'text-gray-600'
                 }`}
               >
