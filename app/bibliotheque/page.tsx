@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Calculator, FlaskConical, Atom, ArrowRight, Microscope, Play, Search, Filter } from 'lucide-react';
 import { useState } from 'react';
+import VideoModal from '@/components/VideoModal';
 
 type Serie = 'tse' | 'tsexp' | 'all';
 type Matiere = 'maths' | 'all';
@@ -10,24 +11,27 @@ type Matiere = 'maths' | 'all';
 export default function BibliothequePage() {
   const [selectedSerie, setSelectedSerie] = useState<Serie>('all');
   const [selectedMatiere, setSelectedMatiere] = useState<Matiere>('all');
+  const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
 
   const videos = [
-    // Maths
-    { id: '1', title: '11e Maths Equations Inequations', description: 'Equations et Inéquations', youtubeId: '1QIA-ecRzfk', serie: 'tse', matiere: 'maths', chapter: 'Equations' },
-    { id: '2', title: '11e Maths Equations Inequations', description: 'Equations et Inéquations', youtubeId: 'ispwJx0jfrM', serie: 'tse', matiere: 'maths', chapter: 'Equations' },
-    { id: '3', title: '10e Maths Equations Inequations', description: 'Equations et Inéquations', youtubeId: 'H2RLZ0Z_WoU', serie: 'tse', matiere: 'maths', chapter: 'Equations' },
-    { id: '4', title: '11e Sc Maths Equations Inequations', description: 'Equations et Inéquations séance1', youtubeId: 'CiCwT1PFWPw', serie: 'tse', matiere: 'maths', chapter: 'Equations' },
-    { id: '5', title: '11e Sc Maths Equations Inequations', description: 'Equations et Inéquations séance2', youtubeId: 'XgjJ1325Exo', serie: 'tse', matiere: 'maths', chapter: 'Equations' },
-    { id: '6', title: 'TSEco TSS TLL TAL Maths Etude fonction', description: 'Etude et Représentation d\'une fonction', youtubeId: 'tHLNzFwW-7M', serie: 'tse', matiere: 'maths', chapter: 'Fonctions' },
-    { id: '7', title: 'TSE STI TSExp STG Maths Equations Différentielles', description: 'Equations Différentielles', youtubeId: 'gOs_HMy68b0', serie: 'tse', matiere: 'maths', chapter: 'Equations Différentielles' },
-    { id: '8', title: 'TSEco TSS TLL TAL Maths Etude fonction', description: 'Etude et Représentation de fonction', youtubeId: 'Zl9O_qDrmhA', serie: 'tse', matiere: 'maths', chapter: 'Fonctions' },
-    { id: '9', title: 'Equations Différentielles', description: 'Equations Différentielles - TSE - STI - TSExp - STG', youtubeId: 'Qp4c-YAv7hA', serie: 'tse', matiere: 'maths', chapter: 'Equations Différentielles' },
-    { id: '10', title: 'Fonction exponentielle népérienne', description: 'Fonction exponentielle népérienne - TSE - STI - TSExp - STG', youtubeId: '_uL67aTNlGs', serie: 'tse', matiere: 'maths', chapter: 'Fonction Exponentielle' },
-    { id: '11', title: 'Intégrale d\'une fonction continue', description: 'Intégrale d\'une fonction continue', youtubeId: 'RfrANZXZeXo', serie: 'tse', matiere: 'maths', chapter: 'Intégrales' },
-    { id: '12', title: 'Fonction Logarithme népérien', description: 'Fonction Logarithme népérien', youtubeId: '47NeiMqj6Y0', serie: 'tse', matiere: 'maths', chapter: 'Logarithme' },
-    { id: '13', title: 'Mathématiques Les Primitives', description: 'Les Primitives', youtubeId: '3KfytYvXX2I', serie: 'tse', matiere: 'maths', chapter: 'Primitives' },
-    { id: '14', title: 'Mathematics Graphical representation of functions', description: 'Graphical representation of functions', youtubeId: 'BWVpOWf-amo', serie: 'tse', matiere: 'maths', chapter: 'Fonctions' },
-    { id: '15', title: 'Mathématique Limite Continuité Dérivabilité', description: 'Limite - Continuité - Dérivabilité', youtubeId: 'jcT-VnUcrK8', serie: 'tse', matiere: 'maths', chapter: 'Limite Continuité Dérivabilité' },
+    // TSE - Maths
+    { id: '1', title: 'Nombres Complexes - TSE', description: 'Module, argument, forme algébrique et exponentielle', youtubeId: '1QIA-ecRzfk', serie: 'tse', matiere: 'maths', chapter: 'Nombres Complexes' },
+    { id: '2', title: 'Arithmétique - TSE', description: 'PGCD, PPCM, nombres premiers, congruences', youtubeId: 'ispwJx0jfrM', serie: 'tse', matiere: 'maths', chapter: 'Arithmétique' },
+    { id: '3', title: 'Fonctions Numériques - TSE', description: 'Étude de fonctions, limites, continuité', youtubeId: 'H2RLZ0Z_WoU', serie: 'tse', matiere: 'maths', chapter: 'Fonctions Numériques' },
+    { id: '4', title: 'Dérivées - TSE', description: 'Calcul de dérivées, applications, tangentes', youtubeId: 'CiCwT1PFWPw', serie: 'tse', matiere: 'maths', chapter: 'Dérivées' },
+    { id: '5', title: 'Intégrales - TSE', description: 'Primitives, intégrales définies, applications', youtubeId: 'XgjJ1325Exo', serie: 'tse', matiere: 'maths', chapter: 'Intégrales' },
+    { id: '6', title: 'Suites Numériques - TSE', description: 'Suites arithmétiques, géométriques, récurrence', youtubeId: 'tHLNzFwW-7M', serie: 'tse', matiere: 'maths', chapter: 'Suites' },
+    { id: '7', title: 'Équations Différentielles - TSE', description: 'Équations différentielles du premier et second ordre', youtubeId: 'gOs_HMy68b0', serie: 'tse', matiere: 'maths', chapter: 'Équations Différentielles' },
+    { id: '8', title: 'Probabilités - TSE', description: 'Loi binomiale, conditionnelles, variables aléatoires', youtubeId: 'Zl9O_qDrmhA', serie: 'tse', matiere: 'maths', chapter: 'Probabilités' },
+    
+    // TSExp - Maths
+    { id: '9', title: 'Nombres Complexes - TSExp', description: 'Module, argument, forme algébrique et exponentielle', youtubeId: 'Qp4c-YAv7hA', serie: 'tsexp', matiere: 'maths', chapter: 'Nombres Complexes' },
+    { id: '10', title: 'Fonction Exponentielle - TSExp', description: 'Fonction exponentielle népérienne', youtubeId: '_uL67aTNlGs', serie: 'tsexp', matiere: 'maths', chapter: 'Fonction Exponentielle' },
+    { id: '11', title: 'Intégrales - TSExp', description: 'Intégrale d\'une fonction continue', youtubeId: 'RfrANZXZeXo', serie: 'tsexp', matiere: 'maths', chapter: 'Intégrales' },
+    { id: '12', title: 'Fonction Logarithme - TSExp', description: 'Fonction Logarithme népérien', youtubeId: '47NeiMqj6Y0', serie: 'tsexp', matiere: 'maths', chapter: 'Logarithme' },
+    { id: '13', title: 'Primitives - TSExp', description: 'Les Primitives', youtubeId: '3KfytYvXX2I', serie: 'tsexp', matiere: 'maths', chapter: 'Primitives' },
+    { id: '14', title: 'Suites Numériques - TSExp', description: 'Suites arithmétiques, géométriques', youtubeId: 'BWVpOWf-amo', serie: 'tsexp', matiere: 'maths', chapter: 'Suites' },
+    { id: '15', title: 'Limite Continuité Dérivabilité - TSExp', description: 'Limite - Continuité - Dérivabilité', youtubeId: 'jcT-VnUcrK8', serie: 'tsexp', matiere: 'maths', chapter: 'Limite Continuité Dérivabilité' },
   ];
 
   const filteredVideos = videos.filter(video => {
@@ -52,8 +56,8 @@ export default function BibliothequePage() {
       {/* Header */}
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <Play size={40} className="border-[#352315]" />
-          <h1 className="text-5xl md:text-6xl font-bold border-[#352315]">
+          <Play size={40} className="border-[var(--card-border)]" />
+          <h1 className="text-5xl md:text-6xl font-bold border-[var(--card-border)]">
             Bibliothèque
           </h1>
         </div>
@@ -76,8 +80,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedSerie('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'all' 
-                  ? 'bg-[#FFEDCE] text-gray-900 border border-[#352315]' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  ? 'bg-[var(--background)] text-gray-900 border border-[#352315]' 
+                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
             >
               Toutes séries
@@ -87,9 +91,9 @@ export default function BibliothequePage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tse' 
                   ? 'text-gray-900' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
-              style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid #352315' } : {}}
+              style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
               TSE
             </button>
@@ -98,9 +102,9 @@ export default function BibliothequePage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tsexp' 
                   ? 'text-gray-900' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
-              style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid #352315' } : {}}
+              style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
               TSExp
             </button>
@@ -112,8 +116,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedMatiere('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedMatiere === 'all' 
-                  ? 'bg-[#FFEDCE] text-gray-900 border border-[#352315]' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  ? 'bg-[var(--background)] text-gray-900 border border-[#352315]' 
+                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
             >
               Toutes
@@ -123,9 +127,9 @@ export default function BibliothequePage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedMatiere === 'maths' 
                   ? 'text-gray-900' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
-              style={selectedMatiere === 'maths' ? { backgroundColor: '#FFF1E6', border: '0.5px solid #352315' } : {}}
+              style={selectedMatiere === 'maths' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
               Maths
             </button>
@@ -135,7 +139,7 @@ export default function BibliothequePage() {
 
       {/* Results count */}
       <div className="mb-6">
-        <p className="border-[#352315]">
+        <p className="border-[var(--card-border)]">
           <span className="font-bold">{filteredVideos.length}</span> vidéo{filteredVideos.length > 1 ? 's' : ''} trouvée{filteredVideos.length > 1 ? 's' : ''}
         </p>
       </div>
@@ -143,31 +147,39 @@ export default function BibliothequePage() {
       {/* Videos Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {filteredVideos.map((video) => (
-          <div key={video.id} className="bento-card overflow-hidden">
+          <div key={video.id} className="bento-card overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+               onClick={() => setSelectedVideo({ id: video.youtubeId, title: video.title })}>
             {/* Video Thumbnail/Preview */}
-            <div className="relative aspect-video bg-[#FFEDCE]">
-              <iframe
-                src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                title={video.title}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+            <div className="relative aspect-video bg-[var(--background)] group">
+              <img
+                src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+                }}
               />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="bg-white/90 rounded-full p-4">
+                  <Play size={32} className="text-gray-900" />
+                </div>
+              </div>
             </div>
             
             {/* Video Info */}
             <div className="p-4">
               <div className="flex items-start justify-between mb-2">
-                <div className="flex items-center gap-2 border-[#352315]">
+                <div className="flex items-center gap-2 border-[var(--card-border)]">
                   {getMatiereIcon(video.matiere)}
                   <span className="text-xs font-bold uppercase">{video.matiere}</span>
                 </div>
-                <span className="text-xs px-2 py-1 rounded-full border border-[#352315] text-gray-700">
+                <span className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-gray-700">
                   {video.serie.toUpperCase()}
                 </span>
               </div>
               <h3 className="font-bold text-gray-800 mb-1">{video.title}</h3>
-              <p className="text-sm border-[#352315] mb-2">{video.description}</p>
+              <p className="text-sm border-[var(--card-border)] mb-2">{video.description}</p>
               <p className="text-xs text-gray-500">Chapitre : {video.chapter}</p>
             </div>
           </div>
@@ -193,6 +205,14 @@ export default function BibliothequePage() {
           <span className="font-medium">Retour à l'accueil</span>
         </Link>
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={selectedVideo !== null}
+        onClose={() => setSelectedVideo(null)}
+        videoId={selectedVideo?.id || ''}
+        title={selectedVideo?.title || ''}
+      />
     </div>
   );
 }

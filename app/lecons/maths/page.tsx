@@ -51,8 +51,8 @@ export default function LeconsMathsPage() {
               onClick={() => setSelectedSerie('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'all' 
-                  ? 'bg-[#FFF8E7] text-gray-900 border border-[#352315]' 
-                  : 'bg-[#FFF8E7] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  ? 'bg-[var(--card-bg)ard-bg)] text-gray-900 border border-[var(--card-border)]' 
+                  : 'bg-[var(--card-bg)ard-bg)] text-gray-900 border border-[#3523var(--card-hover)er:bg-[#FFE4B5]'
               }`}
             >
               Toutes
@@ -62,9 +62,9 @@ export default function LeconsMathsPage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tse' 
                   ? 'text-gray-900' 
-                  : 'bg-[#FFF8E7] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  : 'bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]'
               }`}
-              style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid #352315' } : {}}
+              style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
               TSE
             </button>
@@ -73,9 +73,9 @@ export default function LeconsMathsPage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tsexp' 
                   ? 'text-gray-900' 
-                  : 'bg-[#FFF8E7] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]'
+                  : 'bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]'
               }`}
-              style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid #352315' } : {}}
+              style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
               TSExp
             </button>
@@ -102,7 +102,7 @@ export default function LeconsMathsPage() {
             >
               {/* PDF Preview */}
               {chapitre.fichierLocal && (
-                <div className="relative aspect-[3/4] md:aspect-[4/3] bg-[#FFF8E7]">
+                <div className="relative aspect-[3/4] md:aspect-[4/3] bg-[var(--card-bg)]">
                   <iframe
                     src={`/leçons/maths/${chapitre.fichierLocal}#toolbar=0&navpanes=0&scrollbar=0`}
                     title={chapitre.titre}
@@ -114,7 +114,7 @@ export default function LeconsMathsPage() {
               )}
               
               {!chapitre.fichierLocal && chapitre.fichierExterne && (
-                <div className="relative aspect-[3/4] md:aspect-[4/3] bg-[#FFF8E7] flex items-center justify-center">
+                <div className="relative aspect-[3/4] md:aspect-[4/3] bg-[var(--card-bg)] flex items-center justify-center">
                   <FileText size={64} className="text-gray-400" />
                 </div>
               )}
@@ -125,7 +125,7 @@ export default function LeconsMathsPage() {
                     {chapitre.serie.map((s) => (
                       <span
                         key={s}
-                        className="text-xs px-2 py-1 rounded-full border border-[#352315] text-gray-700"
+                        className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-gray-700"
                       >
                         {s.toUpperCase()}
                       </span>
@@ -136,14 +136,14 @@ export default function LeconsMathsPage() {
                 <h3 className="font-bold text-lg mb-1 text-gray-900">
                   {chapitre.titre}
                 </h3>
-                <p className="text-sm text-gray-600 mb-3 border-b border-[#352315]">{chapitre.description}</p>
+                <p className="text-sm text-gray-600 mb-3 border-b border-[var(--card-border)]">{chapitre.description}</p>
                 
                 <div className="flex flex-col gap-2">
                   {chapitre.exerciceLocal && (
                     <a
                       href={`/leçons/maths/${chapitre.exerciceLocal}`}
                       download
-                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[#FFF8E7] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]"
+                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Download size={14} />
@@ -155,7 +155,7 @@ export default function LeconsMathsPage() {
                       href={chapitre.malimath}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFE4B5]"
+                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--background)] text-gray-900 bordevar(--card-border)r-[#352315] hover:bg-[var(--card-hover)]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <BookOpen size={14} />

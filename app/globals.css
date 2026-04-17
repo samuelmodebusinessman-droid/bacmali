@@ -11,8 +11,11 @@
   /* Dark Brown Border */
   --dark-brown: #4e598c;
   
-  --background: #FFEDCE;
+  --background: #fff8f3;
   --foreground: #1a1a1a;
+  --card-bg: #FFF8E7;
+  --card-border: #352315;
+  --card-hover: #FFE4B5;
 }
 
 @theme inline {

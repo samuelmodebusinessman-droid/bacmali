@@ -22,13 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={playfair.className} style={{ backgroundColor: '#FFEDCE', color: '#1a1a1a' }}>
+      <body className={playfair.className} style={{ backgroundColor: 'var(--background)', color: '#1a1a1a' }}>
         <div className="min-h-screen">
           <Navbar />
-          <main className="min-h-screen" style={{ backgroundColor: '#FFEDCE' }}>
+          <main className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
             {children}
           </main>
-          <footer className="text-center py-8 text-gray-600 border-t border-[#352315]/30 mt-16" style={{ backgroundColor: '#FFEDCE' }}>
+          <footer className="text-center py-8 text-gray-600 border-t border-[#352315]/30 mt-16" style={{ backgroundColor: 'var(--background)' }}>
             <p className="text-sm">Zéro budget • Fait pour les terminales maliens • Partage à tes camarades</p>
           </footer>
         </div>
