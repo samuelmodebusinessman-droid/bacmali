@@ -19,7 +19,8 @@ import {
   ChevronRight,
   Video,
   CheckSquare,
-  Lightbulb
+  Lightbulb,
+  Calculator
 } from 'lucide-react';
 import PDFExerciceViewer from './PDFExerciceViewer';
 
