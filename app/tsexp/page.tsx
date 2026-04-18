@@ -3,13 +3,13 @@ import { Calculator, Play, FileText, ArrowRight, BookOpen, GraduationCap, FlaskC
 
 export default function TSExpPage() {
   const mathsChapters = [
-    { title: 'Nombres Complexes', desc: 'Module, argument, forme algébrique et exponentielle' },
-    { title: 'Arithmétique', desc: 'PGCD, PPCM, nombres premiers, congruences' },
-    { title: 'Fonctions Numériques', desc: 'Étude de fonctions, limites, continuité' },
-    { title: 'Dérivées', desc: 'Calcul de dérivées, applications, tangentes' },
-    { title: 'Intégrales', desc: 'Primitives, intégrales définies, applications' },
-    { title: 'Suites', desc: 'Suites arithmétiques, géométriques, récurrence' },
-    { title: 'Probabilités', desc: 'Loi binomiale, conditionnelles, variables aléatoires' },
+    { title: 'Nombres Complexes', desc: 'Forme algébrique, trigonométrique, exponentielle, équations dans ℂ' },
+    { title: 'Fonctions Numériques', desc: 'Limites, continuité, dérivation, asymptotes, convexité' },
+    { title: 'Fonctions Spéciales', desc: 'Logarithme népérien, exponentielle, fonctions puissances' },
+    { title: 'Suites Numériques', desc: 'Monotonie, convergence, suites arithmétiques et géométriques' },
+    { title: 'Calcul Intégral', desc: 'Primitives, intégrales, aires, volumes, intégration par parties' },
+    { title: 'Équations Différentielles', desc: 'Équations du 1er ordre, équations linéaires du 2nd ordre' },
+    { title: 'Probabilités', desc: 'Dénombrement, probabilités conditionnelles, loi binomiale, espérance' },
   ];
 
   return (

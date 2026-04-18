@@ -3,13 +3,16 @@ import { Calculator, Play, FileText, ArrowRight, BookOpen, Video, GraduationCap 
 
 export default function TSEPage() {
   const mathsChapters = [
-    { title: 'Nombres Complexes', desc: 'Module, argument, forme algébrique et exponentielle' },
-    { title: 'Arithmétique', desc: 'PGCD, PPCM, nombres premiers, congruences' },
-    { title: 'Fonctions Numériques', desc: 'Étude de fonctions, limites, continuité' },
-    { title: 'Dérivées', desc: 'Calcul de dérivées, applications, tangentes' },
-    { title: 'Intégrales', desc: 'Primitives, intégrales définies, applications' },
-    { title: 'Suites', desc: 'Suites arithmétiques, géométriques, récurrence' },
-    { title: 'Probabilités', desc: 'Loi binomiale, conditionnelles, variables aléatoires' },
+    { title: 'Nombres Complexes', desc: 'Forme algébrique, trigonométrique, exponentielle, équations dans ℂ' },
+    { title: 'Arithmétique', desc: 'Division euclidienne, congruences, nombres premiers, PGCD/PPCM, Bézout, Gauss (TSE)' },
+    { title: 'Fonctions Numériques', desc: 'Limites, continuité, dérivation, asymptotes, convexité' },
+    { title: 'Fonctions Spéciales', desc: 'Logarithme népérien, exponentielle, fonctions puissances' },
+    { title: 'Suites Numériques', desc: 'Monotonie, convergence, suites arithmétiques et géométriques' },
+    { title: 'Calcul Intégral', desc: 'Primitives, intégrales, aires, volumes, intégration par parties' },
+    { title: 'Équations Différentielles', desc: 'Équations du 1er ordre, équations linéaires du 2nd ordre' },
+    { title: 'Probabilités', desc: 'Dénombrement, probabilités conditionnelles, loi binomiale, espérance' },
+    { title: 'Géométrie Affine', desc: 'Barycentres, applications affines, lignes de niveau (TSE)' },
+    { title: 'Coniques', desc: 'Parabole, ellipse, hyperbole : équations, foyers, directrices (TSE)' },
   ];
 
   return (
