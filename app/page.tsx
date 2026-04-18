@@ -20,7 +20,7 @@ export default function Home() {
           <FolderOpen size={28} style={{ color: '#352315' }} />
           <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Ressources</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {/* Vidéo */}
           <Link href="/bibliotheque">
             <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] flex flex-col items-center justify-center p-8">
@@ -52,7 +52,7 @@ export default function Home() {
           <GraduationCap size={28} style={{ color: '#352315' }} />
           <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Séries du Baccalauréat</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
           <Link href="/tse">
             <div className="border border-[var(--card-border)] rounded-lg aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-8">
               <div className="text-6xl mb-4">🔬</div>

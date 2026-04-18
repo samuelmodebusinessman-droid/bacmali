@@ -41,7 +41,7 @@ export default function BibliothequePage() {
   });
 
   const getMatiereColor = (matiere: string) => {
-    return 'text-gray-600';
+    return 'text-[#352315]';
   };
 
   const getMatiereIcon = (matiere: string) => {
@@ -61,7 +61,7 @@ export default function BibliothequePage() {
             Bibliothèque
           </h1>
         </div>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+        <p className="text-xl text-[#352315] max-w-3xl mx-auto">
           Vidéos éducatives pour le programme TSE et TSExp
         </p>
       </div>
@@ -70,8 +70,8 @@ export default function BibliothequePage() {
       <div className="bento-card p-6 mb-8">
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
-            <Filter size={20} className="text-gray-500" />
-            <span className="font-medium text-gray-700">Filtres :</span>
+            <Filter size={20} className="text-[#352315]" />
+            <span className="font-medium text-[#352315]">Filtres :</span>
           </div>
           
           {/* Serie Filter */}
@@ -80,8 +80,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedSerie('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'all' 
-                  ? 'bg-[var(--background)] text-gray-900 border border-[#352315]' 
-                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
+                  ? 'bg-[var(--background)] text-[#352315] border border-[#352315]' 
+                  : 'bg-[var(--background)] text-[#352315] border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
             >
               Toutes séries
@@ -90,8 +90,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedSerie('tse')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tse' 
-                  ? 'text-gray-900' 
-                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
+                  ? 'text-[#352315]' 
+                  : 'bg-[var(--background)] text-[#352315] border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
               style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
@@ -101,8 +101,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedSerie('tsexp')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tsexp' 
-                  ? 'text-gray-900' 
-                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
+                  ? 'text-[#352315]' 
+                  : 'bg-[var(--background)] text-[#352315] border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
               style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
@@ -116,8 +116,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedMatiere('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedMatiere === 'all' 
-                  ? 'bg-[var(--background)] text-gray-900 border border-[#352315]' 
-                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
+                  ? 'bg-[var(--background)] text-[#352315] border border-[#352315]' 
+                  : 'bg-[var(--background)] text-[#352315] border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
             >
               Toutes
@@ -126,8 +126,8 @@ export default function BibliothequePage() {
               onClick={() => setSelectedMatiere('maths')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedMatiere === 'maths' 
-                  ? 'text-gray-900' 
-                  : 'bg-[var(--background)] text-gray-900 border border-[#352315] hover:bg-[var(--card-hover)]'
+                  ? 'text-[#352315]' 
+                  : 'bg-[var(--background)] text-[#352315] border border-[#352315] hover:bg-[var(--card-hover)]'
               }`}
               style={selectedMatiere === 'maths' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
@@ -162,7 +162,7 @@ export default function BibliothequePage() {
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="bg-white/90 rounded-full p-4">
-                  <Play size={32} className="text-gray-900" />
+                  <Play size={32} className="text-[#352315]" />
                 </div>
               </div>
             </div>
@@ -174,13 +174,13 @@ export default function BibliothequePage() {
                   {getMatiereIcon(video.matiere)}
                   <span className="text-xs font-bold uppercase">{video.matiere}</span>
                 </div>
-                <span className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-gray-700">
+                <span className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-[#352315]">
                   {video.serie.toUpperCase()}
                 </span>
               </div>
-              <h3 className="font-bold text-gray-800 mb-1">{video.title}</h3>
+              <h3 className="font-bold text-[#352315] mb-1">{video.title}</h3>
               <p className="text-sm border-[var(--card-border)] mb-2">{video.description}</p>
-              <p className="text-xs text-gray-500">Chapitre : {video.chapter}</p>
+              <p className="text-xs text-[#352315]">Chapitre : {video.chapter}</p>
             </div>
           </div>
         ))}
@@ -190,8 +190,8 @@ export default function BibliothequePage() {
       {filteredVideos.length === 0 && (
         <div className="bento-card p-12 text-center">
           <Play size={48} className="mx-auto mb-4 text-gray-400" />
-          <h3 className="text-xl font-bold text-gray-700 mb-2">Aucune vidéo trouvée</h3>
-          <p className="text-gray-500">Essayez de modifier vos filtres pour voir plus de résultats</p>
+          <h3 className="text-xl font-bold text-[#352315] mb-2">Aucune vidéo trouvée</h3>
+          <p className="text-[#352315]">Essayez de modifier vos filtres pour voir plus de résultats</p>
         </div>
       )}
 
@@ -199,7 +199,7 @@ export default function BibliothequePage() {
       <div className="text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700"
+          className="inline-flex items-center gap-2 text-[#352315] hover:text-[#352315]"
         >
           <ArrowRight className="rotate-180" size={20} />
           <span className="font-medium">Retour à l'accueil</span>
