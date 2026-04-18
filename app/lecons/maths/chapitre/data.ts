@@ -8,6 +8,8 @@ export interface Chapitre {
   description: string;
   objectifs: string[];
   videoUrl?: string;
+  pdfExerciceUrl?: string;
+  pdfExerciceUrlFallback?: string;
   sections: Section[];
   exercices: Exercice[];
   quiz: QuizQuestion[];
@@ -48,6 +50,8 @@ export const chapitres: Chapitre[] = [
       'Interpréter géométriquement les opérations',
     ],
     videoUrl: 'https://www.youtube.com/embed/1QIA-ecRzfk',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/nombres-complexes.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/nombres-complexes.pdf',
     sections: [
       {
         id: '1-1',
@@ -113,6 +117,8 @@ export const chapitres: Chapitre[] = [
       'Appliquer le théorème de Bézout et Gauss',
     ],
     videoUrl: 'https://www.youtube.com/embed/ispwJx0jfrM',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/arithmetique.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/arithmetique.pdf',
     sections: [
       {
         id: '2-1',
@@ -173,6 +179,8 @@ export const chapitres: Chapitre[] = [
       'Tracer des asymptotes',
     ],
     videoUrl: 'https://www.youtube.com/embed/H2RLZ0Z_WoU',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/etude-fonctions-exercices.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/etude-fonctions-exercices.pdf',
     sections: [
       {
         id: '3-1',
@@ -223,6 +231,8 @@ export const chapitres: Chapitre[] = [
       'Connaître les limites remarquables',
     ],
     videoUrl: 'https://www.youtube.com/embed/_uL67aTNlGs',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/EXERCISE/fonctions-logarithmes.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/EXERCISE/fonctions-logarithmes.pdf',
     sections: [
       {
         id: '4-1',
@@ -276,6 +286,8 @@ export const chapitres: Chapitre[] = [
       'Démontrer par récurrence',
     ],
     videoUrl: 'https://www.youtube.com/embed/tHLNzFwW-7M',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/suites-numeriques.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/suites-numeriques.pdf',
     sections: [
       {
         id: '5-1',
@@ -333,6 +345,8 @@ export const chapitres: Chapitre[] = [
       'Calculer des aires et volumes',
     ],
     videoUrl: 'https://www.youtube.com/embed/XgjJ1325Exo',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/calcul-integral-differentiel.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/calcul-integral-differentiel.pdf',
     sections: [
       {
         id: '6-1',
@@ -384,6 +398,8 @@ export const chapitres: Chapitre[] = [
       'Trouver des solutions particulières',
     ],
     videoUrl: 'https://www.youtube.com/embed/gOs_HMy68b0',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/calcul-integral-differentiel.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/calcul-integral-differentiel.pdf',
     sections: [
       {
         id: '7-1',
@@ -436,6 +452,8 @@ export const chapitres: Chapitre[] = [
       'Utiliser la loi binomiale',
     ],
     videoUrl: 'https://www.youtube.com/embed/Zl9O_qDrmhA',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/EXERCISE/probabilites.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/EXERCISE/probabilites.pdf',
     sections: [
       {
         id: '8-1',
@@ -499,6 +517,8 @@ export const chapitres: Chapitre[] = [
       'Étudier les applications affines',
     ],
     videoUrl: 'https://www.youtube.com/embed/1QIA-ecRzfk',
+    pdfExerciceUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/barycentre.pdf',
+    pdfExerciceUrlFallback: 'https://www.bkalan.ml/api/files/mathematiques/12-STI-TSE/EXERCISE/barycentre.pdf',
     sections: [
       {
         id: '9-1',

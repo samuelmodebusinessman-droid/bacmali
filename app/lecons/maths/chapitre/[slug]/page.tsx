@@ -6,8 +6,7 @@ import { useState } from 'react';
 import { 
   getChapitreBySlug, 
   getChapitreNext, 
-  getChapitrePrev, 
-  getChapitresBySerie,
+  getChapitrePrev,
   type Serie 
 } from '../data';
 import { 
@@ -18,22 +17,16 @@ import {
   XCircle, 
   ChevronDown, 
   ChevronRight,
-  Calculator,
-  Lightbulb,
-  HelpCircle,
   Video,
   CheckSquare
 } from 'lucide-react';
+import PDFExerciceViewer from './PDFExerciceViewer';
 
 export default function ChapitrePage() {
   const params = useParams();
   const slug = params.slug as string;
   const chapitre = getChapitreBySlug(slug);
   
-  const [selectedSerie, setSelectedSerie] = useState<Serie | null>(null);
-  const [expandedExercices, setExpandedExercices] = useState<string[]>([]);
-  const [showSolution, setShowSolution] = useState<string | null>(null);
-  const [showIndices, setShowIndices] = useState<string | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<Record<string, number | null>>({});
   const [showQuizResult, setShowQuizResult] = useState<Record<string, boolean>>({});
   const [activeTab, setActiveTab] = useState<'cours' | 'exercices' | 'quiz'>('cours');
@@ -52,16 +45,9 @@ export default function ChapitrePage() {
 
   const chapitreNext = getChapitreNext(slug);
   const chapitrePrev = getChapitrePrev(slug);
-  const allChapitres = chapitre.serie.flatMap(s => getChapitresBySerie(s));
 
   const toggleSection = (id: string) => {
     setExpandedSections(prev => 
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
-  };
-
-  const toggleExercice = (id: string) => {
-    setExpandedExercices(prev =>
       prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
   };
@@ -218,78 +204,11 @@ export default function ChapitrePage() {
 
       {/* Exercices Tab */}
       {activeTab === 'exercices' && (
-        <div className="space-y-4">
-          {chapitre.exercices.map((exercice, idx) => (
-            <div 
-              key={exercice.id}
-              className="border rounded-lg overflow-hidden"
-              style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--background)' }}
-            >
-              <button
-                onClick={() => toggleExercice(exercice.id)}
-                className="w-full flex items-center justify-between p-4 text-left"
-              >
-                <div className="flex items-center gap-3">
-                  <Calculator size={20} style={{ color: '#352315' }} />
-                  <h3 className="font-bold" style={{ color: '#352315' }}>Exercice {idx + 1}</h3>
-                </div>
-                {expandedExercices.includes(exercice.id) ? 
-                  <ChevronDown size={20} style={{ color: '#352315' }} /> : 
-                  <ChevronRight size={20} style={{ color: '#352315' }} />
-                }
-              </button>
-              
-              {expandedExercices.includes(exercice.id) && (
-                <div className="px-4 pb-4">
-                  <p className="mb-4 font-medium" style={{ color: '#352315' }}>{exercice.enonce}</p>
-                  
-                  {/* Indices */}
-                  <div className="mb-4">
-                    <button
-                      onClick={() => setShowIndices(showIndices === exercice.id ? null : exercice.id)}
-                      className="flex items-center gap-2 text-sm font-medium mb-2"
-                      style={{ color: '#5a4a3a' }}
-                    >
-                      <HelpCircle size={16} />
-                      {showIndices === exercice.id ? 'Masquer les indices' : 'Afficher les indices'}
-                    </button>
-                    
-                    {showIndices === exercice.id && (
-                      <ul className="space-y-1 ml-6">
-                        {exercice.indices.map((indice, i) => (
-                          <li key={i} className="text-sm" style={{ color: '#5a4a3a' }}>
-                            • {indice}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-
-                  {/* Solution */}
-                  <button
-                    onClick={() => setShowSolution(showSolution === exercice.id ? null : exercice.id)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border"
-                    style={{ 
-                      borderColor: 'var(--card-border)', 
-                      backgroundColor: 'var(--card-bg)',
-                      color: '#352315'
-                    }}
-                  >
-                    <Lightbulb size={16} />
-                    {showSolution === exercice.id ? 'Masquer la solution' : 'Voir la solution'}
-                  </button>
-                  
-                  {showSolution === exercice.id && (
-                    <div className="mt-4 p-4 rounded-lg border" style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg)' }}>
-                      <p className="font-medium mb-2" style={{ color: '#352315' }}>Solution :</p>
-                      <p style={{ color: '#5a4a3a' }}>{exercice.solution}</p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <PDFExerciceViewer 
+          pdfUrl={chapitre.pdfExerciceUrl}
+          pdfUrlFallback={chapitre.pdfExerciceUrlFallback}
+          titre={chapitre.titre}
+        />
       )}
 
       {/* Quiz Tab */}
