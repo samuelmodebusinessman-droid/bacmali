@@ -29,38 +29,30 @@ export default function TSEPage() {
 
       {/* Section Ressources Principales */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-8 justify-center">
           <BookOpen size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Ressources TSE</h2>
+          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Ressources TSE</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {/* Cours PDF */}
           <Link href="/lecons/maths">
-            <div className="border border-[var(--card-border)] rounded-xl p-8 cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] hover:bg-[var(--card-hover)]">
-              <div className="flex items-start justify-between mb-4">
-                <FileText size={48} className="text-[#352315]" />
-                <ArrowRight size={24} className="text-[#352315]" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Cours PDF</h3>
-              <p className="text-[#352315] mb-4">Tous les cours de mathématiques en PDF avec exercices corrigés pour la TSE.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)] text-[#352315]">7 chapitres</span>
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)] text-[#352315]">Exercices</span>
+            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] flex flex-col items-center justify-center p-8">
+              <FileText size={48} style={{ color: '#352315' }} />
+              <h3 className="text-2xl font-bold mb-2 text-center mt-4" style={{ color: '#352315' }}>Cours PDF</h3>
+              <p className="text-center" style={{ color: '#352315' }}>Cours complets avec exercices</p>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>7 chapitres</span>
               </div>
             </div>
           </Link>
           {/* Vidéos */}
           <Link href="/bibliotheque">
-            <div className="border border-[var(--card-border)] rounded-xl p-8 cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] hover:bg-[var(--card-hover)]">
-              <div className="flex items-start justify-between mb-4">
-                <Play size={48} className="text-[#352315]" />
-                <ArrowRight size={24} className="text-[#352315]" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Vidéos</h3>
-              <p className="text-[#352315] mb-4">Sélection de vidéos éducatives spécialement adaptées au programme TSE.</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)] text-[#352315]">15+ vidéos</span>
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)] text-[#352315]">Toutes matières</span>
+            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] flex flex-col items-center justify-center p-8">
+              <Play size={48} style={{ color: '#352315' }} />
+              <h3 className="text-2xl font-bold mb-2 text-center mt-4" style={{ color: '#352315' }}>Vidéos</h3>
+              <p className="text-center" style={{ color: '#352315' }}>Vidéos éducatives TSE</p>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>15+ vidéos</span>
               </div>
             </div>
           </Link>
@@ -69,9 +61,9 @@ export default function TSEPage() {
 
       {/* Programme de Mathématiques */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-8 justify-center">
           <Calculator size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Programme de Mathématiques</h2>
+          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Programme de Mathématiques</h2>
         </div>
         <div className="border border-[var(--card-border)] rounded-lg p-6 bg-[var(--background)]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -97,9 +89,9 @@ export default function TSEPage() {
 
       {/* Info filière */}
       <section className="mb-16">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-6 justify-center">
           <GraduationCap size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Débouchés</h2>
+          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Débouchés</h2>
         </div>
         <div className="border border-[var(--card-border)] rounded-lg p-6 bg-[var(--background)]">
           <p className="text-[#352315] mb-4">

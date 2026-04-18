@@ -56,8 +56,8 @@ export default function BibliothequePage() {
       {/* Header */}
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <Play size={40} className="border-[var(--card-border)]" />
-          <h1 className="text-5xl md:text-6xl font-bold border-[var(--card-border)]">
+          <Play size={40} style={{ color: '#352315' }} />
+          <h1 className="text-5xl md:text-6xl font-bold" style={{ color: '#352315' }}>
             Bibliothèque
           </h1>
         </div>
@@ -138,14 +138,14 @@ export default function BibliothequePage() {
       </div>
 
       {/* Results count */}
-      <div className="mb-6">
-        <p className="border-[var(--card-border)]">
+      <div className="mb-6 text-center">
+        <p style={{ color: '#352315' }}>
           <span className="font-bold">{filteredVideos.length}</span> vidéo{filteredVideos.length > 1 ? 's' : ''} trouvée{filteredVideos.length > 1 ? 's' : ''}
         </p>
       </div>
 
       {/* Videos Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-12 max-w-7xl mx-auto">
         {filteredVideos.map((video) => (
           <div key={video.id} className="bento-card overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
                onClick={() => setSelectedVideo({ id: video.youtubeId, title: video.title })}>
