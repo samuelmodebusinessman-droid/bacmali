@@ -18,7 +18,8 @@ import {
   ChevronDown, 
   ChevronRight,
   Video,
-  CheckSquare
+  CheckSquare,
+  Lightbulb
 } from 'lucide-react';
 import PDFExerciceViewer from './PDFExerciceViewer';
 
