@@ -18,8 +18,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl">🇲🇱</span>
-            <span className="text-xl font-bold text-gray-900">
-              MathToBac.ml
+            <span className="text-xl font-bold" style={{ color: '#352315' }}>
+              MaliMath
             </span>
           </Link>
 
@@ -28,11 +28,12 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium hover:text-gray-900 ${
+                className={`text-sm font-medium hover:opacity-80 ${
                   pathname === item.href
-                    ? 'text-gray-900 font-bold'
-                    : 'text-gray-600'
+                    ? 'font-bold'
+                    : ''
                 }`}
+                style={{ color: pathname === item.href ? '#352315' : '#5a4a3a' }}
               >
                 {item.name}
               </Link>
@@ -47,11 +48,12 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium hover:text-gray-900 py-2 ${
+                className={`text-sm font-medium hover:opacity-80 py-2 ${
                   pathname === item.href
-                    ? 'text-gray-900 font-bold'
-                    : 'text-gray-600'
+                    ? 'font-bold'
+                    : ''
                 }`}
+                style={{ color: pathname === item.href ? '#352315' : '#5a4a3a' }}
               >
                 {item.name}
               </Link>

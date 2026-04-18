@@ -11,7 +11,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "MathToBac.ml - Maths TSE TSExp",
+  title: "MaliMath - Maths TSE TSExp",
   description: "Le Bento Grid pour cartonner en Mathématiques TSE & TSExp - Programme officiel malien",
 };
 
