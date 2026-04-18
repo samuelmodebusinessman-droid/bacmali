@@ -32,12 +32,12 @@ export default function LeconsMathsPage() {
       {/* Header */}
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <Calculator size={40} className="text-gray-600" />
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <Calculator size={40} className="text-[#352315]" />
+          <h1 className="text-5xl md:text-6xl font-bold text-[#352315]">
             Leçons de Mathématiques
           </h1>
         </div>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+        <p className="text-xl text-[#352315] max-w-3xl mx-auto">
           Fiches de cours et exercices pour TSE et TSExp
         </p>
       </div>
@@ -45,14 +45,14 @@ export default function LeconsMathsPage() {
       {/* Filters */}
       <div className="bento-card p-6 mb-8">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="font-medium text-gray-700">Filtrer par série :</span>
+          <span className="font-medium text-[#352315]">Filtrer par série :</span>
           <div className="flex gap-2">
             <button
               onClick={() => setSelectedSerie('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'all' 
-                  ? 'bg-[var(--card-bg)ard-bg)] text-gray-900 border border-[var(--card-border)]' 
-                  : 'bg-[var(--card-bg)ard-bg)] text-gray-900 border border-[#3523var(--card-hover)er:bg-[#FFE4B5]'
+                  ? 'bg-[var(--card-bg)] text-[#352315] border border-[var(--card-border)]' 
+                  : 'bg-[var(--card-bg)] text-[#352315] border border-[var(--card-border)] hover:bg-[var(--card-hover)]'
               }`}
             >
               Toutes
@@ -61,8 +61,8 @@ export default function LeconsMathsPage() {
               onClick={() => setSelectedSerie('tse')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tse' 
-                  ? 'text-gray-900' 
-                  : 'bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]'
+                  ? 'text-[#352315]' 
+                  : 'bg-[var(--card-bg)] text-[#352315] border border-[var(--card-border)] hover:bg-[var(--card-hover)]'
               }`}
               style={selectedSerie === 'tse' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
@@ -72,8 +72,8 @@ export default function LeconsMathsPage() {
               onClick={() => setSelectedSerie('tsexp')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tsexp' 
-                  ? 'text-gray-900' 
-                  : 'bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]'
+                  ? 'text-[#352315]' 
+                  : 'bg-[var(--card-bg)] text-[#352315] border border-[var(--card-border)] hover:bg-[var(--card-hover)]'
               }`}
               style={selectedSerie === 'tsexp' ? { backgroundColor: '#FFF1E6', border: '0.5px solid var(--card-border)' } : {}}
             >
@@ -125,7 +125,7 @@ export default function LeconsMathsPage() {
                     {chapitre.serie.map((s) => (
                       <span
                         key={s}
-                        className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-gray-700"
+                        className="text-xs px-2 py-1 rounded-full border border-[var(--card-border)] text-[#352315]"
                       >
                         {s.toUpperCase()}
                       </span>
@@ -133,17 +133,17 @@ export default function LeconsMathsPage() {
                   </div>
                 </div>
                 
-                <h3 className="font-bold text-lg mb-1 text-gray-900">
+                <h3 className="font-bold text-lg mb-1 text-[#352315]">
                   {chapitre.titre}
                 </h3>
-                <p className="text-sm text-gray-600 mb-3 border-b border-[var(--card-border)]">{chapitre.description}</p>
+                <p className="text-sm text-[#352315] mb-3 border-b border-[var(--card-border)]">{chapitre.description}</p>
                 
                 <div className="flex flex-col gap-2">
                   {chapitre.exerciceLocal && (
                     <a
                       href={`/leçons/maths/${chapitre.exerciceLocal}`}
                       download
-                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]"
+                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--card-bg)] text-[#352315] border border-[var(--card-border)] hovvar(--card-hover)#FFE4B5]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Download size={14} />
@@ -155,7 +155,7 @@ export default function LeconsMathsPage() {
                       href={chapitre.malimath}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--background)] text-gray-900 bordevar(--card-border)r-[#352315] hover:bg-[var(--card-hover)]"
+                      className="flex items-center justify-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[var(--background)] text-[#352315] border border-[var(--card-border)] hover:bg-[var(--card-hover)]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <BookOpen size={14} />
@@ -174,7 +174,7 @@ export default function LeconsMathsPage() {
       <div className="text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700"
+          className="inline-flex items-center gap-2 text-[#352315] hover:text-[#352315]"
         >
           <ArrowRight className="rotate-180" size={20} />
           <span className="font-medium">Retour à l'accueil</span>
