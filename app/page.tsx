@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{ color: '#352315' }}>
-          🇲🇱 MathToBac
+          🇲🇱 MaliMath
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto" style={{ color: '#352315' }}>
           Catalogue complet pour réussir le Bac malien en Mathématiques
