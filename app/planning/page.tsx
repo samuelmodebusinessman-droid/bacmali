@@ -35,11 +35,11 @@ export default function PlanningPage() {
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Calendar size={40} className="text-[#352315]" />
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#352315]">
             Planning Hebdo
           </h1>
         </div>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+        <p className="text-xl text-[#352315] max-w-3xl mx-auto">
           Programme de révision en Mathématiques pour TSE et TSExp
         </p>
       </div>
@@ -47,14 +47,14 @@ export default function PlanningPage() {
       {/* Filters */}
       <div className="bento-card p-6 mb-8">
         <div className="flex flex-wrap items-center gap-4">
-          <span className="font-medium text-gray-700">Filtrer par série :</span>
+          <span className="font-medium text-[#352315]">Filtrer par série :</span>
           <div className="flex gap-2">
             <button
               onClick={() => setSelectedSerie('all')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'all' 
-                  ? 'bg-[#FFF8E7] text-gray-900 border border-[#352315]' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFF8E7]'
+                  ? 'bg-[#FFF8E7] text-[#352315] border border-[#352315]' 
+                  : 'bg-[#FFEDCE] text-[#352315] border border-[#352315] hover:bg-[#FFF8E7]'
               }`}
             >
               Toutes
@@ -64,7 +64,7 @@ export default function PlanningPage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tse' 
                   ? 'text-[#1F271B]' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFF8E7]'
+                  : 'bg-[#FFEDCE] text-[#352315] border border-[#352315] hover:bg-[#FFF8E7]'
               }`}
               style={selectedSerie === 'tse' ? { backgroundColor: '#EAEBED', border: '0.5px solid #352315' } : {}}
             >
@@ -75,7 +75,7 @@ export default function PlanningPage() {
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 selectedSerie === 'tsexp' 
                   ? 'text-[#1F271B]' 
-                  : 'bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFF8E7]'
+                  : 'bg-[#FFEDCE] text-[#352315] border border-[#352315] hover:bg-[#FFF8E7]'
               }`}
               style={selectedSerie === 'tsexp' ? { backgroundColor: '#EAEBED', border: '0.5px solid #352315' } : {}}
             >
@@ -94,20 +94,20 @@ export default function PlanningPage() {
                 <Calendar size={24} />
                 <span className="text-xs font-bold uppercase">{item.semaine}</span>
               </div>
-              <span className="text-xs px-2 py-1 rounded-full border border-[#352315] text-gray-700">
+              <span className="text-xs px-2 py-1 rounded-full border border-[#352315] text-[#352315]">
                 {item.serie.toUpperCase()}
               </span>
             </div>
             
             <div className="flex items-center gap-2 mb-2">
-              <Calculator size={20} className="text-gray-600" />
-              <h3 className="font-bold text-lg text-gray-900">{item.chapitre}</h3>
+              <Calculator size={20} className="text-[#352315]" />
+              <h3 className="font-bold text-lg text-[#352315]">{item.chapitre}</h3>
             </div>
-            <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+            <p className="text-sm text-[#352315] mb-4">{item.description}</p>
             
             <Link
               href="/lecons/maths"
-              className="inline-flex items-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[#FFEDCE] text-gray-900 border border-[#352315] hover:bg-[#FFF8E7]"
+              className="inline-flex items-center gap-2 text-xs font-bold py-2 px-4 rounded bg-[#FFEDCE] text-[#352315] border border-[#352315] hover:bg-[#FFF8E7]"
             >
               <Clock size={14} />
               Voir le cours <ArrowRight size={12} />
@@ -120,7 +120,7 @@ export default function PlanningPage() {
       <div className="text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700"
+          className="inline-flex items-center gap-2 text-[#352315] hover:text-[#352315]"
         >
           <ArrowRight className="rotate-180" size={20} />
           <span className="font-medium">Retour à l'accueil</span>

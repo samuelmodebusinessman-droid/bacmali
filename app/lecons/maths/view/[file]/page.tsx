@@ -13,8 +13,8 @@ export default function ViewPDFPage() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bento-card p-12 text-center">
-          <h1 className="text-2xl font-bold text-gray-700 mb-4">Fichier non trouvé</h1>
-          <Link href="/lecons/maths" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700">
+          <h1 className="text-2xl font-bold text-[#352315] mb-4">Fichier non trouvé</h1>
+          <Link href="/lecons/maths" className="inline-flex items-center gap-2 text-[#352315] hover:text-[#352315]">
             <ArrowRight className="rotate-180" size={20} />
             <span className="font-medium">Retour aux leçons</span>
           </Link>
@@ -33,18 +33,18 @@ export default function ViewPDFPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/lecons/maths" className="p-2 hover:bg-[#FFE4B5] rounded-lg">
-                <X size={20} className="text-gray-700" />
+                <X size={20} className="text-[#352315]" />
               </Link>
               <div>
-                <h1 className="text-lg font-bold text-gray-900">{title}</h1>
-                <p className="text-sm text-gray-600">Visualisation du document</p>
+                <h1 className="text-lg font-bold text-[#352315]">{title}</h1>
+                <p className="text-sm text-[#352315]">Visualisation du document</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <a
                 href={pdfUrl}
                 download
-                className="flex items-center gap-2 px-4 py-2 bg-[#FFF8E7] text-gray-900 border border-[#352315] rounded-lg hover:bg-[#FFE4B5] text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-[#FFF8E7] text-[#352315] border border-[#352315] rounded-lg hover:bg-[#FFE4B5] text-sm font-medium"
               >
                 <Download size={16} />
                 Télécharger
@@ -53,7 +53,7 @@ export default function ViewPDFPage() {
                 href={pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-[#FFF8E7] text-gray-900 border border-[#352315] rounded-lg hover:bg-[#FFE4B5] text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-[#FFF8E7] text-[#352315] border border-[#352315] rounded-lg hover:bg-[#FFE4B5] text-sm font-medium"
               >
                 <ExternalLink size={16} />
                 Ouvrir dans un nouvel onglet
