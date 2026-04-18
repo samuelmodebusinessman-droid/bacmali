@@ -36,22 +36,22 @@ export default function TSEPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {/* Cours PDF */}
           <Link href="/lecons/maths">
-            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] flex flex-col items-center justify-center p-8">
-              <FileText size={48} style={{ color: '#352315' }} />
-              <h3 className="text-2xl font-bold mb-2 text-center mt-4" style={{ color: '#352315' }}>Cours PDF</h3>
-              <p className="text-center" style={{ color: '#352315' }}>Cours complets avec exercices</p>
-              <div className="flex flex-wrap gap-2 mt-4 justify-center">
+            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
+              <FileText size={40} style={{ color: '#352315' }} />
+              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Cours PDF</h3>
+              <p className="text-center text-sm" style={{ color: '#352315' }}>Cours complets</p>
+              <div className="flex flex-wrap gap-2 mt-3 justify-center">
                 <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>7 chapitres</span>
               </div>
             </div>
           </Link>
           {/* Vidéos */}
           <Link href="/bibliotheque">
-            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--card-bg)] flex flex-col items-center justify-center p-8">
-              <Play size={48} style={{ color: '#352315' }} />
-              <h3 className="text-2xl font-bold mb-2 text-center mt-4" style={{ color: '#352315' }}>Vidéos</h3>
-              <p className="text-center" style={{ color: '#352315' }}>Vidéos éducatives TSE</p>
-              <div className="flex flex-wrap gap-2 mt-4 justify-center">
+            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
+              <Play size={40} style={{ color: '#352315' }} />
+              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Vidéos</h3>
+              <p className="text-center text-sm" style={{ color: '#352315' }}>Vidéos éducatives</p>
+              <div className="flex flex-wrap gap-2 mt-3 justify-center">
                 <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>15+ vidéos</span>
               </div>
             </div>
