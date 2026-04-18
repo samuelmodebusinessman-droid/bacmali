@@ -3,13 +3,13 @@ import { Calculator, Play, FileText, ArrowRight, BookOpen, GraduationCap, FlaskC
 
 export default function TSExpPage() {
   const mathsChapters = [
-    { title: 'Nombres Complexes', desc: 'Forme algébrique, trigonométrique, exponentielle, équations dans ℂ' },
-    { title: 'Fonctions Numériques', desc: 'Limites, continuité, dérivation, asymptotes, convexité' },
-    { title: 'Fonctions Spéciales', desc: 'Logarithme népérien, exponentielle, fonctions puissances' },
-    { title: 'Suites Numériques', desc: 'Monotonie, convergence, suites arithmétiques et géométriques' },
-    { title: 'Calcul Intégral', desc: 'Primitives, intégrales, aires, volumes, intégration par parties' },
-    { title: 'Équations Différentielles', desc: 'Équations du 1er ordre, équations linéaires du 2nd ordre' },
-    { title: 'Probabilités', desc: 'Dénombrement, probabilités conditionnelles, loi binomiale, espérance' },
+    { title: 'Nombres Complexes', slug: 'nombres-complexes', desc: 'Forme algébrique, trigonométrique, exponentielle, équations dans ℂ' },
+    { title: 'Fonctions Numériques', slug: 'fonctions-numeriques', desc: 'Limites, continuité, dérivation, asymptotes, convexité' },
+    { title: 'Fonctions Spéciales', slug: 'fonctions-speciales', desc: 'Logarithme népérien, exponentielle, fonctions puissances' },
+    { title: 'Suites Numériques', slug: 'suites-numeriques', desc: 'Monotonie, convergence, suites arithmétiques et géométriques' },
+    { title: 'Calcul Intégral', slug: 'calcul-integral', desc: 'Primitives, intégrales, aires, volumes, intégration par parties' },
+    { title: 'Équations Différentielles', slug: 'equations-differentielles', desc: 'Équations du 1er ordre, équations linéaires du 2nd ordre' },
+    { title: 'Probabilités', slug: 'probabilites', desc: 'Dénombrement, probabilités conditionnelles, loi binomiale, espérance' },
   ];
 
   return (
@@ -69,13 +69,15 @@ export default function TSExpPage() {
         <div className="border border-[var(--card-border)] rounded-lg p-6 bg-[var(--background)]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {mathsChapters.map((chapter, index) => (
-              <div
+              <Link
                 key={index}
-                className="border border-[var(--card-border)] rounded-lg p-4 bg-[var(--card-bg)]"
+                href={`/lecons/maths/chapitre/${chapter.slug}`}
+                className="border border-[var(--card-border)] rounded-lg p-4 bg-[var(--card-bg)] cursor-pointer hover:shadow-md transition-shadow"
               >
                 <h3 className="font-bold mb-2 text-gray-900">{chapter.title}</h3>
                 <p className="text-sm text-[#352315]">{chapter.desc}</p>
-              </div>
+                <div className="mt-2 text-xs text-[#352315] font-medium">Voir la leçon →</div>
+              </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
