@@ -28,8 +28,26 @@ export default function AIChatModal({ chapitreContext, isOpen, onClose }: AIChat
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [cooldownTime, setCooldownTime] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const lastRequestTime = useRef<number>(0);
+
+  // Gestion du cooldown
+  useEffect(() => {
+    if (cooldownTime > 0) {
+      const timer = setInterval(() => {
+        setCooldownTime(prev => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [cooldownTime]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -46,13 +64,23 @@ export default function AIChatModal({ chapitreContext, isOpen, onClose }: AIChat
   }, [isOpen]);
 
   const handleSend = async () => {
-    if (!input.trim() || loading) return;
+    if (!input.trim() || loading || cooldownTime > 0) return;
+
+    // Rate limiting: minimum 3 secondes entre requêtes
+    const now = Date.now();
+    const timeSinceLastRequest = now - lastRequestTime.current;
+    if (timeSinceLastRequest < 3000) {
+      const waitTime = Math.ceil((3000 - timeSinceLastRequest) / 1000);
+      setCooldownTime(waitTime);
+      return;
+    }
 
     setError(null);
     const userMessage: Message = { role: 'user', content: input };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setLoading(true);
+    lastRequestTime.current = Date.now();
 
     try {
       const response = await fetch('/api/chat', {
@@ -67,6 +95,12 @@ export default function AIChatModal({ chapitreContext, isOpen, onClose }: AIChat
       const data = await response.json();
       
       if (!response.ok) {
+        // Gestion spéciale erreur 429 (rate limit)
+        if (response.status === 429) {
+          const retryAfter = data.retryAfter || 60;
+          setCooldownTime(retryAfter);
+          throw new Error(`Trop de requêtes. Attends ${retryAfter} secondes avant de réessayer.`);
+        }
         throw new Error(data.error || 'Erreur de service');
       }
       
@@ -83,7 +117,7 @@ export default function AIChatModal({ chapitreContext, isOpen, onClose }: AIChat
       setError(errorMessage);
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: `⚠️ ${errorMessage}\n\nRéessaie dans quelques instants, ou contacte l'administrateur si le problème persiste.`
+        content: `⚠️ ${errorMessage}`
       }]);
     } finally {
       setLoading(false);
@@ -223,16 +257,25 @@ export default function AIChatModal({ chapitreContext, isOpen, onClose }: AIChat
             />
             <button
               onClick={handleSend}
-              disabled={loading || !input.trim()}
-              className="p-3 rounded-full text-white disabled:opacity-50 transition-all hover:scale-105 active:scale-95"
+              disabled={loading || !input.trim() || cooldownTime > 0}
+              className="p-3 rounded-full text-white disabled:opacity-50 transition-all hover:scale-105 active:scale-95 relative"
               style={{ backgroundColor: '#352315' }}
               aria-label="Envoyer"
             >
-              <Send size={18} />
+              {cooldownTime > 0 ? (
+                <span className="text-xs font-bold">{cooldownTime}s</span>
+              ) : (
+                <Send size={18} />
+              )}
             </button>
           </div>
           <p className="text-xs text-center mt-3" style={{ color: '#5a4a3a' }}>
             Gratuit via OpenRouter • Llama 3.3 70B • 20 req/min
+            {cooldownTime > 0 && (
+              <span className="block text-red-500 font-medium mt-1">
+                ⏳ Attendez {cooldownTime}s avant de réessayer
+              </span>
+            )}
           </p>
         </div>
       </div>
