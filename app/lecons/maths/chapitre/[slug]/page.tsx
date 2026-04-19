@@ -23,6 +23,7 @@ import {
   Calculator
 } from 'lucide-react';
 import PDFExerciceViewer from './PDFExerciceViewer';
+import AIChatButton from '@/components/AIChatButton';
 
 export default function ChapitrePage() {
   const params = useParams();
@@ -343,6 +344,15 @@ export default function ChapitrePage() {
           <div />
         )}
       </div>
+
+      {/* Bouton IA Tuteur */}
+      <AIChatButton 
+        chapitreContext={{
+          titre: chapitre.titre,
+          objectifs: chapitre.objectifs,
+          slug: chapitre.slug
+        }} 
+      />
     </div>
   );
 }
