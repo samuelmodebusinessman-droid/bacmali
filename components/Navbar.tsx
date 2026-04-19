@@ -15,11 +15,11 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-[#EAEBED] border-b border-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-2 md:px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 md:h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl">🇲🇱</span>
-            <span className="text-xl font-bold" style={{ color: '#352315' }}>
+            <span className="text-xl md:text-2xl">🇲🇱</span>
+            <span className="text-lg md:text-xl font-bold" style={{ color: '#352315' }}>
               MaliMath
             </span>
           </Link>
@@ -42,14 +42,14 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu - grille 2x2 compacte */}
-        <div className="md:hidden pb-3">
-          <div className="grid grid-cols-4 gap-2">
+        {/* Mobile menu - ultra compact */}
+        <div className="md:hidden pb-2">
+          <div className="grid grid-cols-4 gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-xs font-medium text-center px-2 py-2 rounded-lg border ${
+                className={`text-[10px] font-medium text-center px-1 py-1 rounded border ${
                   pathname === item.href
                     ? 'font-bold bg-[#352315] text-white border-[#352315]'
                     : 'hover:opacity-80 border-gray-300 bg-white'
