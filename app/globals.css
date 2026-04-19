@@ -38,6 +38,12 @@ body {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 
+/* Empêcher le défilement horizontal global */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* Cacher scrollbar sur mobile pour la navbar */
 .scrollbar-hide {
   -ms-overflow-style: none;
@@ -45,6 +51,16 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* S'assurer que tous les conteneurs respectent la largeur */
+* {
+  max-width: 100%;
+}
+
+/* Navbar mobile - scroll horizontal uniquement pour cette section */
+nav .md\:hidden {
+  max-width: 100%;
 }
 
 * {
