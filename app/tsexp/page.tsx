@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import { Calculator, FileText, ArrowRight, BookOpen, GraduationCap, FlaskConical, ClipboardList } from 'lucide-react';
+import { Calculator, FileText, ArrowRight, BookOpen, GraduationCap, FlaskConical, ClipboardList, ChevronRight, Sparkles, Microscope } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function TSExpPage() {
   const mathsChapters = [
@@ -12,138 +15,266 @@ export default function TSExpPage() {
     { title: 'Probabilités', slug: 'probabilites', desc: 'Dénombrement, probabilités conditionnelles, loi binomiale, espérance' },
   ];
 
-  return (
-    <div className="py-12">
-      {/* Header - Présentation de la filière */}
-      <div className="text-center mb-12">
-        <div className="text-6xl mb-4">🧪</div>
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
-          TSExp
-        </h1>
-        <p className="text-2xl text-[#352315] mb-4">Terminale Sciences Expérimentales</p>
-        <p className="text-lg text-[#352315] max-w-2xl mx-auto">
-          La filière TSExp est destinée aux élèves intéressés par les sciences expérimentales 
-          et souhaitant poursuivre dans les domaines de la médecine, de la pharmacie, 
-          de l'agronomie et des sciences de la vie.
-        </p>
-      </div>
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
 
-      {/* Section Ressources Principales */}
-      <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8 justify-center">
-          <BookOpen size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Ressources TSExp</h2>
+  return (
+    <div className="py-8 md:py-12">
+      {/* Hero Section - TSExp */}
+      <motion.section 
+        className="relative mb-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Background gradient */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#352315]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#352315]/5 rounded-full blur-3xl" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <motion.div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#352315]/10 mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Microscope size={16} className="text-[#352315]" />
+            <span className="text-sm font-medium text-[#352315]">Sciences Expérimentales • 7 Chapitres</span>
+          </motion.div>
+
+          {/* Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mb-6"
+          >
+            <div className="text-7xl mb-4">🧪</div>
+            <h1 className="text-5xl md:text-7xl font-bold text-[#352315] mb-4">
+              TSExp
+            </h1>
+            <p className="text-2xl md:text-3xl text-[#5a4a3a]">Terminale Sciences Expérimentales</p>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p 
+            className="text-lg md:text-xl text-[#5a4a3a] max-w-2xl mx-auto mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            La filière des <span className="font-bold text-[#352315]">passionnés des sciences</span>. 
+            Prépare-toi aux études en médecine, pharmacie, agronomie et sciences de la vie.
+          </motion.p>
+
+          {/* Stats */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            {[
+              { value: '7', label: 'Chapitres' },
+              { value: '🧪', label: 'TSExp' },
+              { value: '🏥', label: 'Médecine' },
+            ].map((stat, index) => (
+              <div key={index} className="px-6 py-3 rounded-full bg-white/60 border border-[#352315]/10">
+                <span className="font-bold text-[#352315]">{stat.value}</span>
+                <span className="text-sm text-[#5a4a3a] ml-2">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Ressources Section */}
+      <motion.section 
+        className="mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#352315] mb-3">Ressources TSExp</h2>
+          <p className="text-lg text-[#5a4a3a]">Tout ce qu'il te faut pour réussir</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {/* Sujets BAC */}
-          <Link href="/sujets">
-            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
-              <ClipboardList size={40} style={{ color: '#352315' }} />
-              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Sujets BAC</h3>
-              <p className="text-center text-sm" style={{ color: '#352315' }}>Sujets & corrigés</p>
-              <div className="flex flex-wrap gap-2 mt-3 justify-center">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>2018-2024</span>
+          <Link href="/sujets" className="group">
+            <motion.div 
+              className="h-full p-8 rounded-2xl bg-gradient-to-br from-white to-[#FFF8E7] border-2 border-[#352315]/10 hover:border-[#352315] transition-all hover:shadow-xl hover:-translate-y-1"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#352315] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <ClipboardList size={28} className="text-white" />
               </div>
-            </div>
+              <h3 className="text-xl font-bold mb-2 text-[#352315]">Sujets BAC</h3>
+              <p className="text-[#5a4a3a] text-sm mb-4">Sujets et corrigés des années précédentes</p>
+              <div className="flex items-center gap-2 text-[#352315] font-semibold text-sm">
+                <span>Explorer</span>
+                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </motion.div>
           </Link>
+
           {/* Leçons */}
-          <Link href="/lecons/maths">
-            <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
-              <BookOpen size={40} style={{ color: '#352315' }} />
-              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Leçons</h3>
-              <p className="text-center text-sm" style={{ color: '#352315' }}>Cours interactifs</p>
-              <div className="flex flex-wrap gap-2 mt-3 justify-center">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>7 chapitres</span>
+          <Link href="/lecons/maths" className="group">
+            <motion.div 
+              className="h-full p-8 rounded-2xl bg-gradient-to-br from-white to-[#FFF8E7] border-2 border-[#352315]/10 hover:border-[#352315] transition-all hover:shadow-xl hover:-translate-y-1"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#352315] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <BookOpen size={28} className="text-white" />
               </div>
-            </div>
+              <h3 className="text-xl font-bold mb-2 text-[#352315]">Leçons</h3>
+              <p className="text-[#5a4a3a] text-sm mb-4">7 chapitres complets avec vidéos</p>
+              <div className="flex items-center gap-2 text-[#352315] font-semibold text-sm">
+                <span>Apprendre</span>
+                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </motion.div>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* Programme de Mathématiques */}
-      <section className="mb-16">
-        <div className="flex items-center gap-3 mb-8 justify-center">
-          <Calculator size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Programme de Mathématiques</h2>
+      <motion.section 
+        className="mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#352315] flex items-center justify-center">
+              <Calculator size={24} className="text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#352315]">Programme de Mathématiques</h2>
+          </div>
+          <p className="text-lg text-[#5a4a3a]">Les 7 chapitres du programme TSExp</p>
         </div>
-        <div className="border border-[var(--card-border)] rounded-lg p-6 bg-[var(--background)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mathsChapters.map((chapter, index) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {mathsChapters.map((chapter, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+            >
               <Link
-                key={index}
                 href={`/lecons/maths/chapitre/${chapter.slug}`}
-                className="border border-[var(--card-border)] rounded-lg p-4 bg-[var(--card-bg)] cursor-pointer hover:shadow-md transition-shadow"
+                className="group block h-full"
               >
-                <h3 className="font-bold mb-2 text-gray-900">{chapter.title}</h3>
-                <p className="text-sm text-[#352315]">{chapter.desc}</p>
-                <div className="mt-2 text-xs text-[#352315] font-medium">Voir la leçon →</div>
+                <div className="h-full p-5 rounded-2xl bg-white border-2 border-[#352315]/10 hover:border-[#352315] transition-all hover:shadow-lg">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#352315]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#352315] transition-colors">
+                      <span className="text-sm font-bold text-[#352315] group-hover:text-white">{index + 1}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-[#352315] mb-1 group-hover:text-[#4a3d2a] transition-colors">{chapter.title}</h3>
+                      <p className="text-sm text-[#5a4a3a] line-clamp-2">{chapter.desc}</p>
+                    </div>
+                  </div>
+                </div>
               </Link>
-            ))}
-          </div>
-          <div className="mt-6 text-center">
-            <Link href="/lecons/maths" className="inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded bg-[var(--card-bg)] text-gray-900 border border-[var(--card-border)] hover:bg-[var(--card-hover)]">
-              <FileText size={18} />
-              Accéder aux cours complets
-              <ArrowRight size={18} />
-            </Link>
-          </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
 
-      {/* Info filière */}
-      <section className="mb-16">
-        <div className="flex items-center gap-3 mb-6 justify-center">
-          <FlaskConical size={28} className="text-[#352315]" />
-          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Matières principales</h2>
+        <div className="mt-8 text-center">
+          <Link 
+            href="/lecons/maths" 
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#352315] text-white rounded-full font-semibold hover:bg-[#4a3d2a] transition-all hover:scale-105 shadow-lg"
+          >
+            <BookOpen size={20} />
+            Voir tous les cours
+            <ArrowRight size={20} />
+          </Link>
         </div>
-        <div className="border border-[var(--card-border)] rounded-lg p-6 bg-[var(--background)]">
-          <p className="text-[#352315] mb-4">
-            Le programme TSExp comprend les matières scientifiques suivantes :
-          </p>
-          <ul className="space-y-2 text-[#352315] mb-6">
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Mathématiques
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Sciences de la Vie et de la Terre (SVT)
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Physique-Chimie
-            </li>
-          </ul>
-          <p className="text-[#352315] mb-4">
-            Après le bac TSExp, les élèves peuvent poursuivre dans les filières suivantes :
-          </p>
-          <ul className="space-y-2 text-[#352315]">
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Médecine, Pharmacie, Médecine dentaire
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Sciences de la Santé (Infirmier, Sage-femme, etc.)
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Agronomie et Métiers de l'Eau
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Sciences de la Vie et de la Terre
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-[var(--card-border)]">•</span> Sciences Économiques et Gestion (SEG)
-            </li>
-          </ul>
-        </div>
-      </section>
+      </motion.section>
 
-      {/* Back to Home */}
-      <div className="text-center">
+      {/* Info filière - Débouchés */}
+      <motion.section 
+        className="mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="bg-gradient-to-r from-[#352315] to-[#4a3d2a] rounded-3xl p-8 md:p-12 text-white">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+              <FlaskConical size={24} />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold">Matières & Débouchés</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-xl mb-4 text-white/90">Matières principales</h3>
+              <div className="space-y-3">
+                {[
+                  'Mathématiques',
+                  'Sciences de la Vie et de la Terre (SVT)',
+                  'Physique-Chimie'
+                ].map((matiere, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-white/10">
+                    <div className="w-2 h-2 rounded-full bg-white" />
+                    <span className="text-white/90">{matiere}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="font-bold text-xl mb-4 text-white/90">Après le Bac</h3>
+              <div className="space-y-3">
+                {[
+                  'Médecine, Pharmacie, Médecine dentaire',
+                  'Sciences de la Santé',
+                  'Agronomie et Métiers de l\'Eau',
+                  'Sciences de la Vie et de la Terre',
+                  'Sciences Économiques et Gestion (SEG)'
+                ].map((filiere, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-white/10">
+                    <div className="w-2 h-2 rounded-full bg-white" />
+                    <span className="text-white/90">{filiere}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* CTA */}
+      <motion.section 
+        className="text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-[#352315] hover:text-gray-900"
+          className="inline-flex items-center gap-2 text-[#352315] font-semibold hover:opacity-80 transition-opacity"
         >
           <ArrowRight className="rotate-180" size={20} />
-          <span className="font-medium">Retour à l'accueil</span>
+          Retour à l'accueil
         </Link>
-      </div>
+      </motion.section>
     </div>
   );
 }
