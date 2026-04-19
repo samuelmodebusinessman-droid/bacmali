@@ -12,201 +12,173 @@ interface SujetBAC {
   id: string;
   annee: string;
   serie: SerieType;
-  session: string; // 'normale' | 'rattrapage'
+  session: string;
   titre: string;
   pdfSujetUrl: string;
   pdfCorrigeUrl?: string;
   description?: string;
+  isCombined?: boolean; // true si sujet et corrigé sont dans le même PDF
 }
 
 const sujetsBAC: SujetBAC[] = [
   // TSE
   {
-    id: 'tse-2024-normale',
-    annee: '2024',
+    id: 'tse-annale-2000-2022',
+    annee: '2000-2022',
     serie: 'TSE',
-    session: 'Session Normale',
-    titre: 'Mathématiques TSE 2024',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2024-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2024-session-normale-corrige.pdf',
-    description: 'Sujet complet avec exercices sur les complexes, suites et intégrales',
+    session: 'Annale Complète',
+    titre: 'Annale TSE STI (2000-2022)',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE/annale-tse-sti-maths-2000-2022.pdf',
+    description: 'Recueil complet des sujets du BAC TSE de 2000 à 2022',
   },
   {
-    id: 'tse-2024-rattrapage',
-    annee: '2024',
-    serie: 'TSE',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSE 2024 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2024-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2024-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tse-2023-normale',
+    id: 'tse-2023',
     annee: '2023',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2023',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2023-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2023-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/BAC/CORRIGE-BAC-2023-TSE-STI-SANS-BAREMES.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus (sans barèmes)',
   },
   {
-    id: 'tse-2023-rattrapage',
-    annee: '2023',
-    serie: 'TSE',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSE 2023 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2023-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2023-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tse-2022-normale',
+    id: 'tse-2022',
     annee: '2022',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2022',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2022-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2022-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/BAC/TSE-STI-BAC-2022.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
   },
   {
-    id: 'tse-2022-rattrapage',
-    annee: '2022',
-    serie: 'TSE',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSE 2022 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2022-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2022-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tse-2021-normale',
+    id: 'tse-2021',
     annee: '2021',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2021',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2021-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2021-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/BAC/CORRIGE-TSE-STI-BAC-2021.pdf',
+    description: 'Corrigé du BAC 2021',
   },
   {
-    id: 'tse-2020-normale',
+    id: 'tse-2020',
     annee: '2020',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2020',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2020-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2020-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/BAC/BAC-TSE-STI-MATH-2020-correction.pdf',
+    description: 'Sujet et corrigé',
   },
   {
-    id: 'tse-2019-normale',
+    id: 'tse-2019',
     annee: '2019',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2019',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2019-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2019-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE/BAC-TSE-TSI-MATH-2019-correction.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
   },
   {
-    id: 'tse-2018-normale',
+    id: 'tse-2018',
     annee: '2018',
     serie: 'TSE',
     session: 'Session Normale',
     titre: 'Mathématiques TSE 2018',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/SUJETS-BAC/2018-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-STI-TSE/CORRIGES-BAC/2018-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE/BAC-TSE-TSI-MATH-2018-correction.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
+  },
+  {
+    id: 'tse-2017',
+    annee: '2017',
+    serie: 'TSE',
+    session: 'Session Normale',
+    titre: 'Mathématiques TSE 2017',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE/BAC-TSE-TSI-MATH-2017-correction.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
+  },
+  {
+    id: 'tse-2016',
+    annee: '2016',
+    serie: 'TSE',
+    session: 'Session Normale',
+    titre: 'Mathématiques TSE 2016',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE/BAC-TSE-TSI-MATH-2016-correction.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
   },
   // TSExp
   {
-    id: 'tsexp-2024-normale',
-    annee: '2024',
+    id: 'tsexp-recueil',
+    annee: 'TSE/TSExp',
     serie: 'TSExp',
-    session: 'Session Normale',
-    titre: 'Mathématiques TSExp 2024',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2024-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2024-session-normale-corrige.pdf',
+    session: 'Recueil Complet',
+    titre: 'Recueil MaliMath TSE/TSExp',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSE-TSEXP/Recueil-d\'exercices-de-mathematiques-TSE-TSEXP-MaliMath.pdf',
+    description: 'Recueil d\'exercices de mathématiques pour TSE et TSExp',
   },
   {
-    id: 'tsexp-2024-rattrapage',
-    annee: '2024',
-    serie: 'TSExp',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSExp 2024 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2024-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2024-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tsexp-2023-normale',
+    id: 'tsexp-2023',
     annee: '2023',
     serie: 'TSExp',
     session: 'Session Normale',
     titre: 'Mathématiques TSExp 2023',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2023-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2023-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/BAC/BAC-TSEXP-2023.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
   },
   {
-    id: 'tsexp-2023-rattrapage',
-    annee: '2023',
-    serie: 'TSExp',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSExp 2023 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2023-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2023-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tsexp-2022-normale',
+    id: 'tsexp-2022',
     annee: '2022',
     serie: 'TSExp',
     session: 'Session Normale',
     titre: 'Mathématiques TSExp 2022',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2022-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2022-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/BAC/TSexp-BAC-2022.pdf',
+    isCombined: true,
+    description: 'Sujet et corrigé inclus',
   },
   {
-    id: 'tsexp-2022-rattrapage',
-    annee: '2022',
-    serie: 'TSExp',
-    session: 'Session de Rattrapage',
-    titre: 'Mathématiques TSExp 2022 (Rattrapage)',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2022-session-rattrapage.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2022-session-rattrapage-corrige.pdf',
-  },
-  {
-    id: 'tsexp-2021-normale',
-    annee: '2021',
-    serie: 'TSExp',
-    session: 'Session Normale',
-    titre: 'Mathématiques TSExp 2021',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2021-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2021-session-normale-corrige.pdf',
-  },
-  {
-    id: 'tsexp-2020-normale',
+    id: 'tsexp-2020',
     annee: '2020',
     serie: 'TSExp',
     session: 'Session Normale',
     titre: 'Mathématiques TSExp 2020',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2020-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2020-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/BAC/BAC-TSExp-MATH-2020-correction.pdf',
+    description: 'Sujet et corrigé',
   },
   {
-    id: 'tsexp-2019-normale',
-    annee: '2019',
-    serie: 'TSExp',
-    session: 'Session Normale',
-    titre: 'Mathématiques TSExp 2019',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2019-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2019-session-normale-corrige.pdf',
-  },
-  {
-    id: 'tsexp-2018-normale',
+    id: 'tsexp-2018',
     annee: '2018',
     serie: 'TSExp',
     session: 'Session Normale',
     titre: 'Mathématiques TSExp 2018',
-    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/SUJETS-BAC/2018-session-normale.pdf',
-    pdfCorrigeUrl: 'https://bkalan.ml/api/files/mathematiques/12-SCIENCES-EXPERIMENTALES-TSEXP/CORRIGES-BAC/2018-session-normale-corrige.pdf',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSEXP/BAC-TSEXP-MATH-2018-correction.pdf',
+    description: 'Sujet et corrigé',
+  },
+  {
+    id: 'tsexp-2017',
+    annee: '2017',
+    serie: 'TSExp',
+    session: 'Session Normale',
+    titre: 'Mathématiques TSExp 2017',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSEXP/BAC-TSEXP-MATH-2017-correction.pdf',
+    description: 'Sujet et corrigé',
+  },
+  {
+    id: 'tsexp-2016',
+    annee: '2016',
+    serie: 'TSExp',
+    session: 'Session Normale',
+    titre: 'Mathématiques TSExp 2016',
+    pdfSujetUrl: 'https://bkalan.ml/api/files/mathematiques/12-TSEXP/BAC-TSEXP-MATH-2016-correction.pdf',
+    description: 'Sujet et corrigé',
   },
 ];
 
 export default function SujetsBACPage() {
-  const annees = ['2024', '2023', '2022', '2021', '2020', '2019', '2018'];
+  const annees = ['2000-2022', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016'];
   const series: SerieType[] = ['TSE', 'TSExp'];
 
   return (
@@ -309,55 +281,75 @@ export default function SujetsBACPage() {
 
                   {/* Actions */}
                   <div className="p-4 space-y-3">
-                    {/* Sujet */}
-                    <a
-                      href={sujet.pdfSujetUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-3 rounded-lg border hover:opacity-80 transition-opacity"
-                      style={{ 
-                        borderColor: 'var(--card-border)', 
-                        backgroundColor: 'var(--background)'
-                      }}
-                    >
-                      <div className="flex items-center gap-2">
-                        <FileText size={20} style={{ color: '#352315' }} />
-                        <span className="font-medium" style={{ color: '#352315' }}>
-                          Voir le sujet
-                        </span>
-                      </div>
-                      <span className="text-xs" style={{ color: '#5a4a3a' }}>PDF →</span>
-                    </a>
-
-                    {/* Corrigé */}
-                    {sujet.pdfCorrigeUrl ? (
+                    {sujet.isCombined ? (
+                      /* Fichier combiné : Sujet + Corrigé dans un seul PDF */
                       <a
-                        href={sujet.pdfCorrigeUrl}
+                        href={sujet.pdfSujetUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-between p-3 rounded-lg hover:opacity-90 transition-opacity"
                         style={{ backgroundColor: '#352315' }}
                       >
                         <div className="flex items-center gap-2">
-                          <CheckCircle size={20} className="text-white" />
+                          <FileText size={20} className="text-white" />
                           <span className="font-medium text-white">
-                            Voir le corrigé
+                            Voir le sujet et corrigé
                           </span>
                         </div>
                         <span className="text-xs text-white/80">PDF →</span>
                       </a>
                     ) : (
-                      <div 
-                        className="flex items-center justify-between p-3 rounded-lg opacity-50"
-                        style={{ backgroundColor: 'var(--card-border)' }}
-                      >
-                        <div className="flex items-center gap-2">
-                          <CheckCircle size={20} style={{ color: '#5a4a3a' }} />
-                          <span style={{ color: '#5a4a3a' }}>
-                            Corrigé à venir
-                          </span>
-                        </div>
-                      </div>
+                      /* Fichiers séparés : Sujet et Corrigé séparés */
+                      <>
+                        <a
+                          href={sujet.pdfSujetUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between p-3 rounded-lg border hover:opacity-80 transition-opacity"
+                          style={{ 
+                            borderColor: 'var(--card-border)', 
+                            backgroundColor: 'var(--background)'
+                          }}
+                        >
+                          <div className="flex items-center gap-2">
+                            <FileText size={20} style={{ color: '#352315' }} />
+                            <span className="font-medium" style={{ color: '#352315' }}>
+                              Voir le sujet
+                            </span>
+                          </div>
+                          <span className="text-xs" style={{ color: '#5a4a3a' }}>PDF →</span>
+                        </a>
+
+                        {sujet.pdfCorrigeUrl ? (
+                          <a
+                            href={sujet.pdfCorrigeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-3 rounded-lg hover:opacity-90 transition-opacity"
+                            style={{ backgroundColor: '#352315' }}
+                          >
+                            <div className="flex items-center gap-2">
+                              <CheckCircle size={20} className="text-white" />
+                              <span className="font-medium text-white">
+                                Voir le corrigé
+                              </span>
+                            </div>
+                            <span className="text-xs text-white/80">PDF →</span>
+                          </a>
+                        ) : (
+                          <div 
+                            className="flex items-center justify-between p-3 rounded-lg opacity-50"
+                            style={{ backgroundColor: 'var(--card-border)' }}
+                          >
+                            <div className="flex items-center gap-2">
+                              <CheckCircle size={20} style={{ color: '#5a4a3a' }} />
+                              <span style={{ color: '#5a4a3a' }}>
+                                Corrigé à venir
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
