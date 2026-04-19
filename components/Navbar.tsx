@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -47,13 +48,20 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <motion.div 
-                className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#352315] flex items-center justify-center"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden bg-[#352315]"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-lg md:text-xl">🇲🇱</span>
+                <Image 
+                  src="https://i.imgur.com/RhzjOBs.png" 
+                  alt="MaliMath Logo" 
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                  unoptimized
+                />
               </motion.div>
               <div className="hidden sm:block">
                 <span className="text-lg md:text-xl font-bold text-[#352315]">
