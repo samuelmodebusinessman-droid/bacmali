@@ -42,17 +42,17 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu - compact horizontal scroll */}
-        <div className="md:hidden pb-2 overflow-hidden">
-          <div className="flex gap-1 overflow-x-auto scrollbar-hide">
+        {/* Mobile menu - grille 2x2 compacte */}
+        <div className="md:hidden pb-3">
+          <div className="grid grid-cols-4 gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-xs font-medium whitespace-nowrap px-3 py-1.5 rounded-full border ${
+                className={`text-xs font-medium text-center px-2 py-2 rounded-lg border ${
                   pathname === item.href
                     ? 'font-bold bg-[#352315] text-white border-[#352315]'
-                    : 'hover:opacity-80 border-gray-300'
+                    : 'hover:opacity-80 border-gray-300 bg-white'
                 }`}
                 style={{ color: pathname === item.href ? '#fff' : '#5a4a3a' }}
               >
