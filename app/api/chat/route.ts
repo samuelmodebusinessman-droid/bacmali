@@ -5,7 +5,7 @@ const MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
 // Rate limiting simple en mémoire (reset toutes les minutes)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
-const RATE_LIMIT_PER_MINUTE = 5; // 5 requêtes par minute par IP
+const RATE_LIMIT_PER_MINUTE = 10; // 10 requêtes par minute par IP
 
 function getRateLimitInfo(ip: string): { allowed: boolean; remaining: number; resetTime: number } {
   const now = Date.now();
