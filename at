@@ -1,0 +1,24 @@
+= : Le terme ®=¯ n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme ex‚cutable. V‚rifiez l'orthographe du nom, ou si un chemin d'accŠs existe, v‚rifiez 
+que le chemin d'accŠs est correct et r‚essayez.
+Au caractŠre Ligne:2 : 2
++  = Get-Content 'app/tse/page.tsx' -Raw
++  ~
+    + CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+= : Le terme ®=¯ n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme ex‚cutable. V‚rifiez l'orthographe du nom, ou si un chemin d'accŠs existe, v‚rifiez 
+que le chemin d'accŠs est correct et r‚essayez.
+Au caractŠre Ligne:3 : 2
++  =  -split '\r?\n'
++  ~
+    + CategoryInfo          : ObjectNotFound: (=:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+\ : Le terme ®\¯ n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme ex‚cutable. V‚rifiez l'orthographe du nom, ou si un chemin d'accŠs existe, v‚rifiez 
+que le chemin d'accŠs est correct et r‚essayez.
+Au caractŠre Ligne:4 : 6
++ for (\ = 74; \ -lt 78; \++) {
++      ~
+    + CategoryInfo          : ObjectNotFound: (\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
