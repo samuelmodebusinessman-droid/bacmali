@@ -66,7 +66,7 @@ export default function ChapitrePage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="py-8">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm" style={{ color: '#5a4a3a' }}>
         <Link href="/" className="hover:underline">Accueil</Link>

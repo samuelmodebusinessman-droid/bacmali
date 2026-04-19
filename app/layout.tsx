@@ -25,8 +25,10 @@ export default function RootLayout({
       <body className={playfair.className} style={{ backgroundColor: 'var(--background)', color: '#1a1a1a' }}>
         <div className="min-h-screen">
           <Navbar />
-          <main className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
-            {children}
+          <main className="min-h-screen w-full" style={{ backgroundColor: 'var(--background)' }}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+              {children}
+            </div>
           </main>
           <footer className="text-center py-8 text-gray-600 border-t border-[#352315]/30 mt-16" style={{ backgroundColor: 'var(--background)' }}>
             <p className="text-sm">Zéro budget • Fait pour les terminales maliens • Partage à tes camarades</p>

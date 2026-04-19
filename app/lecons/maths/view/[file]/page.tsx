@@ -11,7 +11,7 @@ export default function ViewPDFPage() {
 
   if (!file) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="py-12">
         <div className="bento-card p-12 text-center">
           <h1 className="text-2xl font-bold text-[#352315] mb-4">Fichier non trouvé</h1>
           <Link href="/lecons/maths" className="inline-flex items-center gap-2 text-[#352315] hover:text-[#352315]">
@@ -29,7 +29,7 @@ export default function ViewPDFPage() {
     <div className="min-h-screen" style={{ backgroundColor: '#FFEDCE' }}>
       {/* Header */}
       <div className="bg-[#FFF8E7] border-b border-[#352315] sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="py-4 px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/lecons/maths" className="p-2 hover:bg-[#FFE4B5] rounded-lg">
@@ -64,7 +64,7 @@ export default function ViewPDFPage() {
       </div>
 
       {/* PDF Viewer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="py-8 px-4">
         <div className="bento-card p-4" style={{ backgroundColor: 'white' }}>
           <div className="aspect-[3/4] md:aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
             <iframe
