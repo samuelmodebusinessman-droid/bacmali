@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Accueil', href: '/' },
+    { name: 'Sujets BAC', href: '/sujets' },
     { name: 'TSE', href: '/tse' },
     { name: 'TSExp', href: '/tsexp' },
   ];

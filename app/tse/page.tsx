@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, Play, FileText, ArrowRight, BookOpen, Video, GraduationCap } from 'lucide-react';
+import { Calculator, FileText, ArrowRight, BookOpen, GraduationCap, ClipboardList } from 'lucide-react';
 
 export default function TSEPage() {
   const mathsChapters = [
@@ -37,25 +37,25 @@ export default function TSEPage() {
           <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#352315' }}>Ressources TSE</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          {/* Cours PDF */}
-          <Link href="/lecons/maths">
+          {/* Sujets BAC */}
+          <Link href="/sujets">
             <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
-              <FileText size={40} style={{ color: '#352315' }} />
-              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Cours PDF</h3>
-              <p className="text-center text-sm" style={{ color: '#352315' }}>Cours complets</p>
+              <ClipboardList size={40} style={{ color: '#352315' }} />
+              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Sujets BAC</h3>
+              <p className="text-center text-sm" style={{ color: '#352315' }}>Sujets & corrigés</p>
               <div className="flex flex-wrap gap-2 mt-3 justify-center">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>7 chapitres</span>
+                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>2018-2024</span>
               </div>
             </div>
           </Link>
-          {/* Vidéos */}
-          <Link href="/bibliotheque">
+          {/* Leçons */}
+          <Link href="/lecons/maths">
             <div className="border border-[var(--card-border)] rounded-xl aspect-square cursor-pointer hover:border-[#5a3d2a] transition-colors bg-[var(--background)] flex flex-col items-center justify-center p-6">
-              <Play size={40} style={{ color: '#352315' }} />
-              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Vidéos</h3>
-              <p className="text-center text-sm" style={{ color: '#352315' }}>Vidéos éducatives</p>
+              <BookOpen size={40} style={{ color: '#352315' }} />
+              <h3 className="text-xl font-bold mb-2 text-center mt-3" style={{ color: '#352315' }}>Leçons</h3>
+              <p className="text-center text-sm" style={{ color: '#352315' }}>Cours interactifs</p>
               <div className="flex flex-wrap gap-2 mt-3 justify-center">
-                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>15+ vidéos</span>
+                <span className="text-xs px-3 py-1 rounded-full border border-[var(--card-border)]" style={{ color: '#352315' }}>10 chapitres</span>
               </div>
             </div>
           </Link>
