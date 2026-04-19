@@ -38,6 +38,15 @@ body {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 
+/* Cacher scrollbar sur mobile pour la navbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   font-family: inherit;
 }
