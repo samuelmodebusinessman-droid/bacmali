@@ -43,8 +43,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu - compact horizontal scroll */}
-        <div className="md:hidden pb-2">
-          <div className="flex gap-1 overflow-x-auto scrollbar-hide -mx-4 px-4">
+        <div className="md:hidden pb-2 overflow-hidden">
+          <div className="flex gap-1 overflow-x-auto scrollbar-hide">
             {navItems.map((item) => (
               <Link
                 key={item.name}
