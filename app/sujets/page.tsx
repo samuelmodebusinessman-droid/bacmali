@@ -1,10 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowLeft, FileText, CheckCircle, GraduationCap, Filter } from 'lucide-react';
-
-export const metadata = {
-  title: 'Sujets BAC et Corrigés - BacMali',
-  description: 'Galerie des sujets du Baccalauréat avec leurs corrigés pour TSE et TSExp',
-};
+import { useState } from 'react';
 
 type SerieType = 'TSE' | 'TSExp';
 
@@ -178,8 +176,17 @@ const sujetsBAC: SujetBAC[] = [
 ];
 
 export default function SujetsBACPage() {
-  const annees = ['2000-2022', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016'];
+  const [selectedAnnee, setSelectedAnnee] = useState<string>('all');
+  const annees = ['all', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016'];
   const series: SerieType[] = ['TSE', 'TSExp'];
+
+  const getFilteredSujets = (serie: SerieType) => {
+    return sujetsBAC.filter(sujet => {
+      const matchesSerie = sujet.serie === serie;
+      const matchesAnnee = selectedAnnee === 'all' || sujet.annee === selectedAnnee;
+      return matchesSerie && matchesAnnee;
+    });
+  };
 
   return (
     <div className="py-8">
@@ -209,18 +216,22 @@ export default function SujetsBACPage() {
             <Filter size={16} className="inline mr-1" />
             Années:
           </span>
-          <button className="px-4 py-2 rounded-lg font-medium text-sm bg-[#352315] text-white">
-            Toutes
-          </button>
           {annees.map(annee => (
-            <a 
+            <button 
               key={annee}
-              href={`#annee-${annee}`}
-              className="px-4 py-2 rounded-lg font-medium text-sm border hover:opacity-80 transition-opacity"
-              style={{ borderColor: 'var(--card-border)', color: '#352315', backgroundColor: 'var(--card-bg)' }}
+              onClick={() => setSelectedAnnee(annee)}
+              className={`px-4 py-2 rounded-lg font-medium text-sm border hover:opacity-80 transition-opacity whitespace-nowrap ${
+                selectedAnnee === annee 
+                  ? 'bg-[#352315] text-white border-[#352315]' 
+                  : ''
+              }`}
+              style={selectedAnnee === annee 
+                ? {} 
+                : { borderColor: 'var(--card-border)', color: '#352315', backgroundColor: 'var(--card-bg)' }
+              }
             >
-              {annee}
-            </a>
+              {annee === 'all' ? 'Toutes' : annee}
+            </button>
           ))}
         </div>
       </div>
@@ -237,14 +248,17 @@ export default function SujetsBACPage() {
               className="px-3 py-1 rounded-full text-xs font-medium"
               style={{ backgroundColor: '#352315', color: 'white' }}
             >
-              {sujetsBAC.filter(s => s.serie === serie).length} sujets
+              {getFilteredSujets(serie).length} sujet{getFilteredSujets(serie).length > 1 ? 's' : ''}
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {sujetsBAC
-              .filter(sujet => sujet.serie === serie)
-              .map(sujet => (
+            {getFilteredSujets(serie).length === 0 ? (
+              <div className="col-span-full text-center py-8 text-gray-500">
+                Aucun sujet pour l&apos;année {selectedAnnee}
+              </div>
+            ) : (
+              getFilteredSujets(serie).map(sujet => (
                 <div 
                   key={sujet.id}
                   className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
@@ -353,7 +367,8 @@ export default function SujetsBACPage() {
                     )}
                   </div>
                 </div>
-              ))}
+              ))
+            )}
           </div>
         </section>
       ))}
