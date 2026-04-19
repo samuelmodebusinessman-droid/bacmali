@@ -2,7 +2,53 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
 
+// Rate limiting simple en mémoire (reset toutes les minutes)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+const RATE_LIMIT_PER_MINUTE = 5; // 5 requêtes par minute par IP
+
+function getRateLimitInfo(ip: string): { allowed: boolean; remaining: number; resetTime: number } {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    // Nouvelle fenêtre de rate limiting
+    rateLimitMap.set(ip, { count: 1, resetTime: now + 60000 });
+    return { allowed: true, remaining: RATE_LIMIT_PER_MINUTE - 1, resetTime: now + 60000 };
+  }
+  
+  if (record.count >= RATE_LIMIT_PER_MINUTE) {
+    return { allowed: false, remaining: 0, resetTime: record.resetTime };
+  }
+  
+  record.count++;
+  return { allowed: true, remaining: RATE_LIMIT_PER_MINUTE - record.count, resetTime: record.resetTime };
+}
+
 export async function POST(req: NextRequest) {
+  // Rate limiting check
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
+  const rateLimitInfo = getRateLimitInfo(ip);
+  
+  if (!rateLimitInfo.allowed) {
+    const retryAfter = Math.ceil((rateLimitInfo.resetTime - Date.now()) / 1000);
+    return NextResponse.json(
+      { 
+        error: `Trop de messages. Attends ${retryAfter}s avant de réessayer.`,
+        retryAfter,
+        remaining: 0
+      },
+      { 
+        status: 429,
+        headers: {
+          'X-RateLimit-Remaining': '0',
+          'X-RateLimit-Reset': rateLimitInfo.resetTime.toString(),
+          'Retry-After': retryAfter.toString()
+        }
+      }
+    );
+  }
+  
   const { messages, chapitreContext } = await req.json();
   
   const systemPrompt = `Tu es Professeur Math, un tuteur de mathématiques pour le Bac malien (TSE/TSExp).
