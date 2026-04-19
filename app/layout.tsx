@@ -22,11 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={playfair.className} style={{ backgroundColor: 'var(--background)', color: '#1a1a1a' }}>
-        <div className="min-h-screen">
+      <body className={`${playfair.className} overflow-x-hidden`} style={{ backgroundColor: 'var(--background)', color: '#1a1a1a' }}>
+        <div className="min-h-screen overflow-x-hidden">
           <Navbar />
-          <main className="min-h-screen w-full" style={{ backgroundColor: 'var(--background)' }}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <main className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: 'var(--background)' }}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
               {children}
             </div>
           </main>
